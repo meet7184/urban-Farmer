@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
+import 'order_detailed_preview_screen.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   static const String routeName = "/orderDetailsScreen";
@@ -154,20 +154,27 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                               fontWeight: FontWeight.w700, fontSize: 20),
                         ),
                         Spacer(),
-                        Container(
-                          height: 40,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            color: AppColor.kPrimaryGreen,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Add",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed(
+                                    OrderDetailedPreviewScreen.routeName);
+                          },
+                          child: Container(
+                            height: 40,
+                            width: 120,
+                            decoration: BoxDecoration(
+                              color: AppColor.kPrimaryGreen,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Add",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white),
+                              ),
                             ),
                           ),
                         ),

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/services/services_category_screen.dart';
-
 import '../../../const/app_icon.dart';
 
-class ServicesListPageScreen extends StatelessWidget {
+class ServicesListPageScreen extends StatefulWidget {
   static const String routeName = "/servicesListPageScreen";
   const ServicesListPageScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ServicesListPageScreen> createState() => _ServicesListPageScreenState();
+}
+
+class _ServicesListPageScreenState extends State<ServicesListPageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,66 +23,35 @@ class ServicesListPageScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 20),
-                ...List.generate(
-                  5,
-                  (index) => Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context, rootNavigator: true)
-                              .pushNamed(ServicesCategoryScreen.routeName);
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 25),
-                          //height: 180,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: Color(0xffCD895C),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15, right: 15, top: 20, bottom: 20),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Kitchen Garden",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 18),
-                                      ),
-                                      SizedBox(height: 20),
-                                      Text(
-                                        "Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a more-or-less"
-                                        "Kitchen Garden",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.asset(
-                                    AppAssets.kitchenGardenImage,
-                                    height: 120,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                getGardenListRight(
+                    Color(0xffff8e1e3),
+                    "Kitchen Garden",
+                    "Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a more-or-less",
+                    AppAssets.kitchenGardenImage),
+                SizedBox(height: 15),
+                getGardenListLeft(
+                    Color(0xffffe9e1),
+                    "Garden Maintenance",
+                    "Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a",
+                    AppAssets.kitchenGardenImage2),
+                SizedBox(height: 15),
+                getGardenListRight(
+                    Color(0xffbfdadb),
+                    "Corporate Gift",
+                    "Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a",
+                    AppAssets.kitchenGardenImage),
+                SizedBox(height: 15),
+                getGardenListLeft(
+                    Color(0xffC8DCB7),
+                    "Green Gift",
+                    "Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a",
+                    AppAssets.kitchenGardenImage2),
+                SizedBox(height: 15),
+                getGardenListRight(
+                    Color(0xffdee6ec),
+                    "Online Gardening",
+                    "Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a",
+                    AppAssets.kitchenGardenImage),
               ],
             ),
           ),
@@ -101,6 +74,111 @@ class ServicesListPageScreen extends StatelessWidget {
               radius: 19,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget getGardenListRight(
+      Color color, String title, String description, String image) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context, rootNavigator: true)
+            .pushNamed(ServicesCategoryScreen.routeName);
+      },
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      description,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  image,
+                  height: 120,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget getGardenListLeft(
+      Color color, String title, String description, String image) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context, rootNavigator: true)
+            .pushNamed(ServicesCategoryScreen.routeName);
+      },
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  image,
+                  height: 120,
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700, fontSize: 18),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        description,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

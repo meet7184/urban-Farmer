@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:urban_farmer/ui/screen/services/add_order/add_order_screen.dart';
-
+import 'package:urban_farmer/ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
 
-class DetailedPreviewScreen extends StatefulWidget {
-  static const String routeName = "/detailedPreviewScreen";
-  const DetailedPreviewScreen({Key? key}) : super(key: key);
+class OrderDetailedPreviewScreen extends StatefulWidget {
+  static const String routeName = "/orderDetailedPreviewScreen";
+  const OrderDetailedPreviewScreen({Key? key}) : super(key: key);
 
   @override
-  State<DetailedPreviewScreen> createState() => _DetailedPreviewScreenState();
+  State<OrderDetailedPreviewScreen> createState() =>
+      _OrderDetailedPreviewScreenState();
 }
 
-class _DetailedPreviewScreenState extends State<DetailedPreviewScreen> {
+class _OrderDetailedPreviewScreenState
+    extends State<OrderDetailedPreviewScreen> {
   int quantityIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -187,7 +188,7 @@ class _DetailedPreviewScreenState extends State<DetailedPreviewScreen> {
             GestureDetector(
               onTap: () {
                 Navigator.of(context, rootNavigator: true)
-                    .pushNamed(AddOrderScreen.routeName);
+                    .pushNamed(WhatDoYouWishToGrowScreen.routeName);
               },
               child: Container(
                 height: 45,

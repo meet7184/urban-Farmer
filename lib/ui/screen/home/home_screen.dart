@@ -231,10 +231,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 ),
                               )),
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -246,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return PreferredSize(
       preferredSize: const Size.fromHeight(50),
       child: Padding(
-        padding: EdgeInsets.only(left: 15, right: 15, top: 35),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 35),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -15,11 +15,14 @@ import 'package:urban_farmer/ui/screen/setting/setting_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 
+import '../ui/screen/cart/cart_screen.dart';
 import '../ui/screen/login/sign_up_screen.dart';
 import '../ui/screen/saved/saved_screen.dart';
 import '../ui/screen/search/search_screen.dart';
 import '../ui/screen/services/add_order/add_order_screen.dart';
+import '../ui/screen/services/add_order/order_detailed_preview_screen.dart';
 import '../ui/screen/services/add_order/order_details_screen.dart';
+import '../ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
 import '../ui/screen/services/detail_kitchen_screen.dart';
 import '../ui/screen/services/garden_all_page/garden_detailed_preview_screen.dart';
 import '../ui/screen/services/garden_all_page/garden_details_screen.dart';
@@ -154,6 +157,21 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const OrderDetailsScreen(),
+        );
+      case OrderDetailedPreviewScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const OrderDetailedPreviewScreen(),
+        );
+      case WhatDoYouWishToGrowScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const WhatDoYouWishToGrowScreen(),
+        );
+      case CartScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const CartScreen(),
         );
       default:
         debugPrint('Navigating to ${settings.name}');
