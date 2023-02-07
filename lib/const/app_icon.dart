@@ -59,9 +59,12 @@ class AppAssets {
 
   /// ServicesListPage screen
   static const String kitchenGardenImage = "assets/image/kitchen_garden.png";
+  static const String kitchenGardenImage2 = "assets/image/freestocks.png";
+
   static const String serviceScreenImage3 = "assets/image/ellipse.png";
   static const String serviceScreenImage =
       "assets/image/services_screen_image.png";
   static const String serviceScreenImage2 = "assets/image/service_screen_2.png";
   static const String vegetableImage = "assets/image/vegetable.png";
+  static const String lakeishaImage = "assets/image/lakeisha.png";
 }

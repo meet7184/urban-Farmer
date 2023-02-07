@@ -4,6 +4,7 @@ import 'package:urban_farmer/ui/screen/services/add_order/order_details_screen.d
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
 import '../../setting/order_screen.dart';
+import 'order_detailed_preview_screen.dart';
 
 class AddOrderScreen extends StatefulWidget {
   static const String routeName = "/addOrderScreen";
@@ -83,7 +84,7 @@ class _AddOrderScreenState extends State<AddOrderScreen>
       bottomNavigationBar: GestureDetector(
         onTap: () {
           Navigator.of(context, rootNavigator: true)
-              .pushNamed(OrderDetailsScreen.routeName);
+              .pushNamed(OrderDetailedPreviewScreen.routeName);
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
@@ -170,7 +171,7 @@ class _AddOrderScreenState extends State<AddOrderScreen>
                                         child: Text(
                                           "Add",
                                           style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 18,
                                               fontWeight: FontWeight.w700,
                                               color: Colors.white),
                                         ),

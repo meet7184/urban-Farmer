@@ -71,7 +71,7 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                             child: DropdownButton2(
                               hint: Center(
                                 child: Text(
-                                  'Choose as per the Area',
+                                  '- Choose as per the Area -',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700),

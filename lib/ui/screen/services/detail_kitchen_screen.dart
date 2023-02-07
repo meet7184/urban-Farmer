@@ -146,7 +146,7 @@ class _DetailKitchenScreenState extends State<DetailKitchenScreen>
                       child: DropdownButton2(
                         hint: Center(
                           child: Text(
-                            'Choose as per the Area',
+                            '- Select your Area',
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w700),
                           ),
