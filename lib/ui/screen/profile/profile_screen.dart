@@ -6,6 +6,7 @@ import 'package:urban_farmer/ui/screen/setting/setting_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 
+import '../../widget/back_button.dart';
 import '../setting/order_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -52,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              BackButton(),
+                              CommonBackButton(),
                               Text(
                                 "Profile ",
                                 style: TextStyle(

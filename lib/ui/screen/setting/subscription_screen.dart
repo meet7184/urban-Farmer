@@ -9,7 +9,7 @@ class SubscriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("Your Subscription"),
+      appBar: commonAppBar("Your Subscription"),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),

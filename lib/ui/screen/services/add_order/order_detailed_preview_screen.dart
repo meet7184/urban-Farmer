@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
+import '../../../widget/back_button.dart';
 
 class OrderDetailedPreviewScreen extends StatefulWidget {
   static const String routeName = "/orderDetailedPreviewScreen";
@@ -36,7 +37,7 @@ class _OrderDetailedPreviewScreenState
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        BackButton(),
+                        CommonBackButton(),
                         Text(
                           "Preview",
                           style: TextStyle(

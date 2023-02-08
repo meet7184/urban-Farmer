@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 
+import '../../widget/back_button.dart';
+
 class SettingsScreen extends StatefulWidget {
   static const String routeName = "/settingsScreen";
   const SettingsScreen({Key? key}) : super(key: key);
@@ -90,7 +92,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         padding: EdgeInsets.only(right: 15, top: 30),
         child: Row(
           children: [
-            BackButton(),
+            CommonBackButton(),
             Expanded(
               child: Center(
                 child: Text(

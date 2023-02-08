@@ -26,7 +26,7 @@ class _AddOrderScreenState extends State<AddOrderScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("Planters"),
+      appBar: commonAppBar("Planters"),
       body: SafeArea(
         child: Column(
           children: [

@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../const/app_icon.dart';
 
-class SavedScreen extends StatelessWidget {
+class SavedScreen extends StatefulWidget {
   static const String routeName = 'savedScreen';
   const SavedScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SavedScreen> createState() => _SavedScreenState();
+}
+
+class _SavedScreenState extends State<SavedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,10 +126,19 @@ class SavedScreen extends StatelessWidget {
     return PreferredSize(
       preferredSize: const Size.fromHeight(50),
       child: Padding(
-        padding: EdgeInsets.only(right: 15, top: 30),
+        padding: EdgeInsets.only(left: 15, right: 15, top: 30),
         child: Row(
           children: [
-            BackButton(),
+            GestureDetector(
+              onTap: () {
+                //Navigator.of(context).pushNamed(HomeScreen.routeName);
+                //Navigator.pop(context);
+              },
+              child: Image.asset(
+                AppAssets.arrowImage,
+                height: 20,
+              ),
+            ),
             SizedBox(width: 30),
             Text(
               "Wishlist",

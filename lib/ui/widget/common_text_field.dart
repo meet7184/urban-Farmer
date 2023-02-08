@@ -11,6 +11,8 @@ enum TextFieldType {
   enterUserName,
   newPassword,
   confirmPassword,
+  firstName,
+  address,
 }
 
 class CustomTextField extends StatelessWidget {
@@ -37,6 +39,7 @@ class CustomTextField extends StatelessWidget {
       textInputAction: textInputAction,
       keyboardType: textInputType,
       maxLength: maxLength,
+      maxLines: maxLines,
       controller: textEditingController,
       validator:
           validator ?? (val) => val!.trim().isEmpty ? "field required" : null,
@@ -57,6 +60,14 @@ class CustomTextField extends StatelessWidget {
         hintText: hintText,
       ),
     );
+  }
+
+  int? get maxLines {
+    switch (textFieldType) {
+      case TextFieldType.address:
+        return 5;
+    }
+    return null;
   }
 
   int? get maxLength {
@@ -84,6 +95,7 @@ class CustomTextField extends StatelessWidget {
       case TextFieldType.enterUserName:
       case TextFieldType.newPassword:
       case TextFieldType.confirmPassword:
+      case TextFieldType.firstName:
         return TextInputAction.next;
       default:
         return null;
@@ -135,6 +147,8 @@ class CustomTextField extends StatelessWidget {
         return "New Password";
       case TextFieldType.confirmPassword:
         return "Confirm Password";
+      case TextFieldType.firstName:
+        return "First Name";
       default:
         return null;
     }

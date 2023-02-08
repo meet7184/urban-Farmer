@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/home/product_details_screen.dart';
 import '../../../const/app_icon.dart';
+import '../../widget/back_button.dart';
 
 // class ProductArgs {
 //   final int index;
@@ -232,7 +233,7 @@ class _ProductScreenState extends State<ProductScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            BackButton(),
+            CommonBackButton(),
             CircleAvatar(
               backgroundImage: AssetImage(AppAssets.user),
               radius: 19,

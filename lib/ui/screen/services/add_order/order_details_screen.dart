@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
+import '../../../widget/back_button.dart';
 import 'order_detailed_preview_screen.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
@@ -198,7 +199,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
         padding: EdgeInsets.only(right: 15, top: 30),
         child: Row(
           children: [
-            BackButton(),
+            CommonBackButton(),
             Expanded(
               child: Center(
                 child: Text(

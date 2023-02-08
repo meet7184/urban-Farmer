@@ -26,7 +26,7 @@ class _GardenDetailsScreenState extends State<GardenDetailsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("Kitchen Garden"),
+      appBar: commonAppBar("Kitchen Garden"),
       body: SafeArea(
         child: Column(
           children: [
