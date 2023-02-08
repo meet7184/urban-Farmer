@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/cart/address_screen.dart';
 
+import '../../widget/back_button.dart';
 import '../services/garden_all_page/vegetable_screen.dart';
 import 'offers_screen.dart';
 
@@ -26,7 +27,7 @@ class _CartScreenState extends State<CartScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Row(
                 children: [
-                  BackButton(),
+                  CommonBackButton(),
                   Expanded(
                     child: Center(
                       child: Text(

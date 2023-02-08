@@ -31,8 +31,23 @@ class AppAssets {
   static const String user = "assets/icon/user.png";
   static const String drawer = "assets/icon/drawer.png";
   static const String kitchenImage = "assets/image/kitchenimage.png";
+  static const String gardenImage = "assets/image/garden_image.png";
   static const String lorenInsumImage = "assets/image/loren_insum.png";
   static const String gamlaImage = "assets/image/gamla.png";
+
+  /// GardenMaintenance screen
+  static const String gardenMaintenanceImage =
+      "assets/image/subscription_image.png";
+
+  /// CorporateGifts screen
+  static const String foodImage = "assets/image/food-photos.png";
+
+  /// CorporateDetails Screen
+  static const String corporateDetailsScreenImage =
+      "assets/image/sept-commercial.png";
+
+  /// OnlineGardening Screen
+  static const String onlineGardeningScreenImage = "assets/image/linh-le.png";
 
   /// Product screen
   static const String plantImage = "assets/image/plant.png";

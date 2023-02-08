@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 
-class BackButton extends StatelessWidget {
-  const BackButton({Key? key}) : super(key: key);
+class CommonBackButton extends StatelessWidget {
+  const CommonBackButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

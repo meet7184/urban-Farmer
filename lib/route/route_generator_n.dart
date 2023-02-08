@@ -16,6 +16,9 @@ import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 
 import '../ui/screen/cart/cart_screen.dart';
+import '../ui/screen/home/corporate_gifts/corporate_details_screen.dart';
+import '../ui/screen/home/corporate_gifts/corporate_gifts_screen.dart';
+import '../ui/screen/home/garden_maintenance.dart';
 import '../ui/screen/login/sign_up_screen.dart';
 import '../ui/screen/saved/saved_screen.dart';
 import '../ui/screen/search/search_screen.dart';
@@ -26,6 +29,9 @@ import '../ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
 import '../ui/screen/services/detail_kitchen_screen.dart';
 import '../ui/screen/services/garden_all_page/garden_detailed_preview_screen.dart';
 import '../ui/screen/services/garden_all_page/garden_details_screen.dart';
+import '../ui/screen/services/gardeners_visit_screen.dart';
+import '../ui/screen/services/green_gift_screen.dart';
+import '../ui/screen/services/online_gardening_screen.dart';
 import '../ui/screen/services/services_category_screen.dart';
 import '../ui/screen/services/services_listpage_screen.dart';
 
@@ -172,6 +178,36 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const CartScreen(),
+        );
+      case GardenersVisitScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const GardenersVisitScreen(),
+        );
+      case GardenMaintenanceScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const GardenMaintenanceScreen(),
+        );
+      case CorporateGiftsScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const CorporateGiftsScreen(),
+        );
+      case CorporateDetailsScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const CorporateDetailsScreen(),
+        );
+      case OnlineGardeningScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const OnlineGardeningScreen(),
+        );
+      case GreenGiftScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const GreenGiftScreen(),
         );
       default:
         debugPrint('Navigating to ${settings.name}');

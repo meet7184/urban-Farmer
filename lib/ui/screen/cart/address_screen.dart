@@ -53,55 +53,60 @@ class _AddressScreenState extends State<AddressScreen> {
                               accountManageType = e;
                               setState(() {});
                             },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const SizedBox(height: 10),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        e == AccountManageType.deactivate
-                                            ? "Pooja Bhamboo, (Pincode)"
-                                            : "Pooja Bhamboo, (Pincode)",
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 17),
+                            child: Container(
+                              color: Colors.transparent,
+                              margin: EdgeInsets.only(bottom: 5, top: 5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          e == AccountManageType.deactivate
+                                              ? "Pooja Bhamboo, (Pincode)"
+                                              : "Pooja Bhamboo, (Pincode)",
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 17),
+                                        ),
                                       ),
-                                    ),
-                                    Container(
-                                      height: 20,
-                                      width: 20,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: Colors.grey,
-                                            width: 1.2,
-                                          )),
-                                      child: e == accountManageType
-                                          ? const Center(
-                                              child: CircleAvatar(
-                                                radius: 5,
-                                                backgroundColor: Colors.black,
-                                              ),
-                                            )
-                                          : const SizedBox(),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                Text(
-                                  e == AccountManageType.deactivate
-                                      ? "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-                                      : "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 15),
-                                ),
-                                const SizedBox(height: 10),
-                                Divider(thickness: 3),
-                              ],
+                                      Container(
+                                        height: 20,
+                                        width: 20,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: Colors.grey,
+                                              width: 1.2,
+                                            )),
+                                        child: e == accountManageType
+                                            ? const Center(
+                                                child: CircleAvatar(
+                                                  radius: 5,
+                                                  backgroundColor: Colors.black,
+                                                ),
+                                              )
+                                            : const SizedBox(),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Text(
+                                    e == AccountManageType.deactivate
+                                        ? "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                                        : "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 15),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Divider(thickness: 3),
+                                ],
+                              ),
                             ),
                           ))
                       .toList(),

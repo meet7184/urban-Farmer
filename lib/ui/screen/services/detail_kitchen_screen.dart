@@ -4,6 +4,7 @@ import 'package:urban_farmer/const/app_color.dart';
 import 'package:urban_farmer/ui/screen/services/services_category_screen.dart';
 
 import '../../../const/app_icon.dart';
+import '../../widget/back_button.dart';
 import 'garden_all_page/garden_details_screen.dart';
 
 class DetailKitchenScreen extends StatefulWidget {
@@ -81,7 +82,7 @@ class _DetailKitchenScreenState extends State<DetailKitchenScreen>
         padding: EdgeInsets.only(right: 15, top: 30),
         child: Row(
           children: [
-            BackButton(),
+            CommonBackButton(),
             Expanded(
               child: Center(
                 child: Text(

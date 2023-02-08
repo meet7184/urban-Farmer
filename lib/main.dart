@@ -3,7 +3,6 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:urban_farmer/ui/screen/cart/cart_screen.dart';
 import 'package:urban_farmer/ui/screen/dashboad/dashboard_screen.dart';
-import 'package:urban_farmer/ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 import 'core/bindings/app_bindings.dart';
 import 'route/route_generator_n.dart';
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "Nunito",
         ),
         initialBinding: AppBindings(),
-        initialRoute: SplashScreen.routeName,
+        initialRoute: DashBoardScreen.routeName,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.generateRoute,
         navigatorKey: navigatorKey,

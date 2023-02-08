@@ -20,7 +20,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("Product Details"),
+      appBar: commonAppBar("Product Details"),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -153,7 +153,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         Border.all(color: Color(0xff000000)),
                                   ),
                                   child: Center(
-                                      child: Text(list[index],
+                                      child: Text(value,
                                           style: TextStyle(
                                               fontSize: 15,
                                               color: selectIndex == index

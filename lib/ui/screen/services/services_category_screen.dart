@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../const/app_color.dart';
 import '../../../const/app_icon.dart';
+import '../../widget/back_button.dart';
 import 'detail_kitchen_screen.dart';
 
 class ServicesCategoryScreen extends StatefulWidget {
@@ -203,7 +204,7 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            BackButton(),
+            CommonBackButton(),
             Text(
               "Kitchen Garden",
               style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../const/app_icon.dart';
+import '../../widget/back_button.dart';
 
 class OrderScreen extends StatelessWidget {
   static const String routeName = "/orderScreen";
@@ -9,7 +10,7 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar("Preview"),
+      appBar: commonAppBar("Preview"),
       body: SafeArea(
         child: Column(
           children: [
@@ -190,7 +191,7 @@ class OrderScreen extends StatelessWidget {
   }
 }
 
-PreferredSizeWidget appBar(String text) {
+PreferredSizeWidget commonAppBar(String text) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(50),
     child: Padding(
@@ -198,7 +199,7 @@ PreferredSizeWidget appBar(String text) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          BackButton(),
+          CommonBackButton(),
           Text(
             text,
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 19),

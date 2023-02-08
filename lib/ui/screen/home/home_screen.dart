@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/ui/screen/home/product_screen.dart';
+import 'package:urban_farmer/ui/screen/home/garden_maintenance.dart';
 import 'package:urban_farmer/ui/screen/home/wigdet/carousel_withindicator.dart';
 import 'package:urban_farmer/ui/screen/profile/profile_screen.dart';
 import 'package:urban_farmer/ui/screen/services/services_listpage_screen.dart';
+
+import '../services/online_gardening_screen.dart';
+import '../services/services_category_screen.dart';
+import 'corporate_gifts/corporate_gifts_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'homeScreen';
@@ -22,6 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
+  List<HomeServices> list = [
+    const HomeServices(
+        AppAssets.kitchenImage, "Kitchen Garden", Color(0xffB8DBDB)),
+    const HomeServices(
+        AppAssets.gardenImage, "Garden Maintenance", Color(0xffD7C8BD)),
+    const HomeServices(
+        AppAssets.kitchenImage, "Corporate Gifts", Color(0xffB8DBDB)),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,31 +82,51 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     children: List.generate(
-                      4,
-                      (index) => Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Container(
-                          height: 110,
-                          width: 110,
-                          decoration: BoxDecoration(
-                            color: Color(0xffB8DBDB),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Column(
-                              children: [
-                                Image.asset(AppAssets.kitchenImage, height: 60),
-                                Text(
-                                  "Kitchen Garden",
-                                  maxLines: 2,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 12),
-                                ),
-                                SizedBox(height: 5),
-                              ],
+                      3,
+                      (index) => GestureDetector(
+                        onTap: () {
+                          if (index == 0) {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed(ServicesCategoryScreen.routeName);
+                          }
+                          if (index == 1) {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed(GardenMaintenanceScreen.routeName);
+                          }
+                          if (index == 2) {
+                            Navigator.of(context)
+                                .pushNamed(CorporateGiftsScreen.routeName);
+                          }
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: Container(
+                            height: 110,
+                            width: 110,
+                            decoration: BoxDecoration(
+                              color: list[index].color,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Center(
+                                      child: Image.asset(list[index].image,
+                                          height: 60)),
+                                  Text(
+                                    list[index].text,
+                                    maxLines: 2,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 12),
+                                  ),
+                                  SizedBox(height: 5),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -270,4 +303,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+}
+
+class HomeServices {
+  final String image;
+  final String text;
+  final Color color;
+
+  const HomeServices(this.image, this.text, this.color);
 }
