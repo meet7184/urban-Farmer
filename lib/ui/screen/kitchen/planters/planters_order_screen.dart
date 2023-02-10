@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:urban_farmer/ui/screen/services/add_order/order_details_screen.dart';
+import 'package:urban_farmer/ui/screen/kitchen/planters/order_details_screen.dart';
+import 'package:urban_farmer/ui/widget/back_button.dart';
 
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
+import '../../../widget/app_bar.dart';
 import '../../setting/order_screen.dart';
 import 'order_detailed_preview_screen.dart';
 
-class AddOrderScreen extends StatefulWidget {
+class PlantersOrderScreen extends StatefulWidget {
   static const String routeName = "/addOrderScreen";
-  const AddOrderScreen({Key? key}) : super(key: key);
+  const PlantersOrderScreen({Key? key}) : super(key: key);
 
   @override
-  State<AddOrderScreen> createState() => _AddOrderScreenState();
+  State<PlantersOrderScreen> createState() => _PlantersOrderScreenState();
 }
 
-class _AddOrderScreenState extends State<AddOrderScreen>
+class _PlantersOrderScreenState extends State<PlantersOrderScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
   @override
@@ -26,7 +28,7 @@ class _AddOrderScreenState extends State<AddOrderScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: commonAppBar("Planters"),
+      appBar: backAndTextAndIconAppBar("Planters"),
       body: SafeArea(
         child: Column(
           children: [
@@ -81,35 +83,12 @@ class _AddOrderScreenState extends State<AddOrderScreen>
           ],
         ),
       ),
-      bottomNavigationBar: GestureDetector(
-        onTap: () {
-          Navigator.of(context, rootNavigator: true)
-              .pushNamed(OrderDetailedPreviewScreen.routeName);
-        },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-          child: Container(
-            height: 45,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.4),
-                  blurRadius: 6,
-                )
-              ],
-              color: AppColor.kPrimaryGreen,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-                "Preview",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white),
-              ),
-            ),
-          ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+        child: submitButton(
+          "Preview",
+          () => Navigator.of(context, rootNavigator: true)
+              .pushNamed(PlantersPreviewScreen.routeName),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../const/app_icon.dart';
+import '../../widget/app_bar.dart';
 import 'order_screen.dart';
 
 class SubscriptionScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class SubscriptionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: commonAppBar("Your Subscription"),
+      appBar: backAndTextAndIconAppBar("Your Subscription"),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),

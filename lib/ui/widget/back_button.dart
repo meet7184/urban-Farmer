@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 
+import '../../const/app_color.dart';
+
 class CommonBackButton extends StatelessWidget {
   const CommonBackButton({Key? key}) : super(key: key);
 
@@ -16,4 +18,31 @@ class CommonBackButton extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget submitButton(String text, void Function()? onTap) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      height: 45,
+      width: 270,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.4),
+            blurRadius: 6,
+          )
+        ],
+        color: AppColor.kPrimaryGreen,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w700, color: Colors.white),
+        ),
+      ),
+    ),
+  );
 }

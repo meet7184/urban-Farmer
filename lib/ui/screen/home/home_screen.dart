@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/ui/screen/home/product_screen.dart';
-import 'package:urban_farmer/ui/screen/home/garden_maintenance.dart';
+import 'package:urban_farmer/ui/screen/services/garden_maintenance.dart';
 import 'package:urban_farmer/ui/screen/home/wigdet/carousel_withindicator.dart';
 import 'package:urban_farmer/ui/screen/profile/profile_screen.dart';
 import 'package:urban_farmer/ui/screen/services/services_listpage_screen.dart';
 
-import '../services/online_gardening_screen.dart';
-import '../services/services_category_screen.dart';
-import 'corporate_gifts/corporate_gifts_screen.dart';
+import '../services/corporate_gifts/corporate_gifts_screen.dart';
+import '../kitchen/services_category_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'homeScreen';
@@ -284,7 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(AppAssets.drawer),
-            Text(
+            const Text(
               "Urban Farmer",
               style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
             ),

@@ -4,6 +4,7 @@ import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/core/bindings/dispose_keyboard.dart';
 
 import '../../../const/app_color.dart';
+import '../../widget/back_button.dart';
 import '../../widget/common_text_field.dart';
 import '../login/sign_in_screen.dart';
 import '../login/sign_up_screen.dart';
@@ -64,34 +65,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         textEditingController: confirmPasswordController,
                       ),
                       SizedBox(height: 40),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context, rootNavigator: true)
-                              .pushNamed(SignInScreen.routeName);
-                        },
-                        child: Container(
-                          height: 45,
-                          width: 270,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.4),
-                                blurRadius: 6,
-                              )
-                            ],
-                            color: AppColor.kPrimaryGreen,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Submit",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ),
+                      submitButton(
+                        "Submit",
+                        () => Navigator.of(context, rootNavigator: true)
+                            .pushNamed(SignInScreen.routeName),
                       ),
                       SizedBox(height: 10),
                       Text(

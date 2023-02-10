@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/home/product_details_screen.dart';
+import 'package:urban_farmer/ui/widget/app_bar.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/back_button.dart';
 
@@ -22,7 +23,7 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     //print(widget.index);
     return Scaffold(
-      appBar: appBar(),
+      appBar: backAndUserAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -220,25 +221,6 @@ class _ProductScreenState extends State<ProductScreen> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  PreferredSizeWidget appBar() {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(45),
-      child: Padding(
-        padding: EdgeInsets.only(top: 25, right: 15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CommonBackButton(),
-            CircleAvatar(
-              backgroundImage: AssetImage(AppAssets.user),
-              radius: 19,
-            )
-          ],
         ),
       ),
     );

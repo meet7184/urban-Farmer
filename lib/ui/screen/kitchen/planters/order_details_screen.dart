@@ -158,8 +158,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
-                                .pushNamed(
-                                    OrderDetailedPreviewScreen.routeName);
+                                .pushNamed(PlantersPreviewScreen.routeName);
                           },
                           child: Container(
                             height: 40,

@@ -20,7 +20,7 @@ class BottomTabModel {
 }
 
 class DashBoardScreen extends StatefulWidget {
-  static const String routeName = "/dashboardScreen";
+  static const String routeName = "dashboardScreen";
   const DashBoardScreen({Key? key}) : super(key: key);
 
   @override
