@@ -5,6 +5,7 @@ import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/core/bindings/dispose_keyboard.dart';
 import 'package:urban_farmer/ui/screen/forgot/reset_password_screen.dart';
 import '../../../const/app_color.dart';
+import '../../widget/back_button.dart';
 import '../login/sign_up_screen.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
@@ -87,34 +88,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                           enableActiveFill: true,
                         ),
                         const SizedBox(height: 40),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context, rootNavigator: true)
-                                .pushNamed(ResetPasswordScreen.routeName);
-                          },
-                          child: Container(
-                            height: 45,
-                            width: 270,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.4),
-                                  blurRadius: 6,
-                                )
-                              ],
-                              color: AppColor.kPrimaryGreen,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Submit",
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
+                        submitButton(
+                          "Submit",
+                          () => Navigator.of(context, rootNavigator: true)
+                              .pushNamed(ResetPasswordScreen.routeName),
                         ),
                         SizedBox(height: 10),
                         Text(

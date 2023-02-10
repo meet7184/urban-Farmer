@@ -82,4 +82,12 @@ class AppAssets {
   static const String serviceScreenImage2 = "assets/image/service_screen_2.png";
   static const String vegetableImage = "assets/image/vegetable.png";
   static const String lakeishaImage = "assets/image/lakeisha.png";
+  static const String loredanaImage = "assets/image/loredana.png";
+  static const String stephanieImage = "assets/image/stephanie.png";
+
+  /// GreenGift Screen
+  static const String indoorImage = "assets/icon/indoor.png";
+  static const String outdoorImage = "assets/icon/outdoor.png";
+  static const String gardenImage2 = "assets/icon/garden.png";
+  static const String officeImage = "assets/icon/office.png";
 }

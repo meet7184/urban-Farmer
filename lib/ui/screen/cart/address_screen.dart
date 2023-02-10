@@ -42,9 +42,21 @@ class _AddressScreenState extends State<AddressScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 15),
-                  Text(
-                    "Select",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                  Row(
+                    children: [
+                      Text(
+                        "Select",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 20),
+                      ),
+                      Spacer(),
+                      Text(
+                        "Add",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 12),
+                      ),
+                      Icon(Icons.add, size: 13),
+                    ],
                   ),
                   SizedBox(height: 10),
                   ...AccountManageType.values

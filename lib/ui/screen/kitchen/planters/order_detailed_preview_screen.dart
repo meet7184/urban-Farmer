@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:urban_farmer/ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
+import 'package:urban_farmer/ui/screen/kitchen/what_doyouwishto_grow_screen.dart';
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
 import '../../../widget/back_button.dart';
 
-class OrderDetailedPreviewScreen extends StatefulWidget {
+class PlantersPreviewScreen extends StatefulWidget {
   static const String routeName = "/orderDetailedPreviewScreen";
-  const OrderDetailedPreviewScreen({Key? key}) : super(key: key);
+  const PlantersPreviewScreen({Key? key}) : super(key: key);
 
   @override
-  State<OrderDetailedPreviewScreen> createState() =>
-      _OrderDetailedPreviewScreenState();
+  State<PlantersPreviewScreen> createState() => _PlantersPreviewScreenState();
 }
 
-class _OrderDetailedPreviewScreenState
-    extends State<OrderDetailedPreviewScreen> {
+class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
   int quantityIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,7 @@ class _OrderDetailedPreviewScreenState
                           style: TextStyle(
                               fontWeight: FontWeight.w800, fontSize: 20),
                         ),
-                        Image.asset(AppAssets.shoppingBagImage, height: 23),
+                        Icon(Icons.shopping_bag_outlined, size: 26),
                       ],
                     ),
                   ),
@@ -186,34 +184,10 @@ class _OrderDetailedPreviewScreenState
               ),
             ),
             SizedBox(height: 40),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context, rootNavigator: true)
-                    .pushNamed(WhatDoYouWishToGrowScreen.routeName);
-              },
-              child: Container(
-                height: 45,
-                width: 210,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.4),
-                      blurRadius: 6,
-                    )
-                  ],
-                  color: AppColor.kPrimaryGreen,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Text(
-                    "Next",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            submitButton(
+              "Next",
+              () => Navigator.of(context, rootNavigator: true)
+                  .pushNamed(WhatDoYouWishToGrowScreen.routeName),
             ),
           ],
         ),

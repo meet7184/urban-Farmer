@@ -14,25 +14,25 @@ import 'package:urban_farmer/ui/screen/setting/order_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/setting_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
-
+import '../ui/screen/kitchen/gardeners_visit_screen.dart';
+import '../ui/screen/services/corporate_gifts/corporate_details_screen.dart';
+import '../ui/screen/services/corporate_gifts/corporate_gifts_screen.dart';
+import '../ui/screen/services/green_gift/green_details_screen.dart';
+import '../ui/screen/services/green_gift/green_gift_screen.dart';
 import '../ui/screen/cart/cart_screen.dart';
-import '../ui/screen/home/corporate_gifts/corporate_details_screen.dart';
-import '../ui/screen/home/corporate_gifts/corporate_gifts_screen.dart';
-import '../ui/screen/home/garden_maintenance.dart';
+import '../ui/screen/services/garden_maintenance.dart';
 import '../ui/screen/login/sign_up_screen.dart';
 import '../ui/screen/saved/saved_screen.dart';
 import '../ui/screen/search/search_screen.dart';
-import '../ui/screen/services/add_order/add_order_screen.dart';
-import '../ui/screen/services/add_order/order_detailed_preview_screen.dart';
-import '../ui/screen/services/add_order/order_details_screen.dart';
-import '../ui/screen/services/add_order/what_doyouwishto_grow_screen.dart';
-import '../ui/screen/services/detail_kitchen_screen.dart';
-import '../ui/screen/services/garden_all_page/garden_detailed_preview_screen.dart';
-import '../ui/screen/services/garden_all_page/garden_details_screen.dart';
-import '../ui/screen/services/gardeners_visit_screen.dart';
-import '../ui/screen/services/green_gift_screen.dart';
+import '../ui/screen/kitchen/planters/planters_order_screen.dart';
+import '../ui/screen/kitchen/planters/order_detailed_preview_screen.dart';
+import '../ui/screen/kitchen/planters/order_details_screen.dart';
+import '../ui/screen/kitchen/what_doyouwishto_grow_screen.dart';
+import '../ui/screen/kitchen/detail_kitchengarden_screen.dart';
+import '../ui/screen/kitchen/kitchen_detailed_preview_screen.dart';
+import '../ui/screen/kitchen/kitchen_order/kitchen_orde_screen.dart';
 import '../ui/screen/services/online_gardening_screen.dart';
-import '../ui/screen/services/services_category_screen.dart';
+import '../ui/screen/kitchen/services_category_screen.dart';
 import '../ui/screen/services/services_listpage_screen.dart';
 
 class RouteGenerator {
@@ -139,35 +139,35 @@ class RouteGenerator {
           settings: settings,
           builder: (_) => const ServicesListPageScreen(),
         );
-      case DetailKitchenScreen.routeName:
+      case DetailKitchenGardenScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const DetailKitchenScreen(),
+          builder: (_) => const DetailKitchenGardenScreen(),
         );
-      case GardenDetailsScreen.routeName:
+      case KitchenOrderScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const GardenDetailsScreen(),
+          builder: (_) => const KitchenOrderScreen(),
         );
-      case DetailedPreviewScreen.routeName:
+      case KitchenDetailedPreviewScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const DetailedPreviewScreen(),
+          builder: (_) => const KitchenDetailedPreviewScreen(),
         );
-      case AddOrderScreen.routeName:
+      case PlantersOrderScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const AddOrderScreen(),
+          builder: (_) => const PlantersOrderScreen(),
         );
       case OrderDetailsScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const OrderDetailsScreen(),
         );
-      case OrderDetailedPreviewScreen.routeName:
+      case PlantersPreviewScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const OrderDetailedPreviewScreen(),
+          builder: (_) => const PlantersPreviewScreen(),
         );
       case WhatDoYouWishToGrowScreen.routeName:
         return MaterialPageRoute(
@@ -208,6 +208,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const GreenGiftScreen(),
+        );
+      case GreenDetailsScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const GreenDetailsScreen(),
         );
       default:
         debugPrint('Navigating to ${settings.name}');

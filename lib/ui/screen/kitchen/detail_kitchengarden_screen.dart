@@ -1,20 +1,32 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:urban_farmer/const/app_color.dart';
+import 'package:urban_farmer/ui/screen/kitchen/services_category_screen.dart';
 
-import '../../../const/app_color.dart';
 import '../../../const/app_icon.dart';
+import '../../widget/app_bar.dart';
 import '../../widget/back_button.dart';
-import 'detail_kitchen_screen.dart';
+import '../../widget/container_submit_textfield_widget.dart';
+import 'kitchen_order/kitchen_orde_screen.dart';
 
-class ServicesCategoryScreen extends StatefulWidget {
-  static const String routeName = "/servicesCategoryScreen";
-  const ServicesCategoryScreen({Key? key}) : super(key: key);
+class DetailKitchenGardenScreen extends StatefulWidget {
+  static const String routeName = 'detailKitchenScreen';
+  const DetailKitchenGardenScreen({Key? key}) : super(key: key);
 
   @override
-  State<ServicesCategoryScreen> createState() => _ServicesCategoryScreenState();
+  State<DetailKitchenGardenScreen> createState() =>
+      _DetailKitchenGardenScreenState();
 }
 
-class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
+class _DetailKitchenGardenScreenState extends State<DetailKitchenGardenScreen>
+    with SingleTickerProviderStateMixin {
+  TextEditingController houseController = TextEditingController();
+  TextEditingController buildingController = TextEditingController();
+  TextEditingController floorController = TextEditingController();
+  TextEditingController facingController = TextEditingController();
+  TextEditingController gerdenModelController = TextEditingController();
+  TextEditingController noOfModelController = TextEditingController();
+  late TabController tabController;
   String? selected;
   List<KitchenCountry> dropdownList = [
     KitchenCountry(title: "Small", sqFt: "Upto 100 Sq ft."),
@@ -22,42 +34,59 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
     KitchenCountry(title: "Large", sqFt: "Upto 300 Sq ft."),
     KitchenCountry(title: "Extended Farm", sqFt: "300 Sq ft. & Above"),
   ];
+
+  @override
+  void initState() {
+    tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: backAndTextAppBar("Kitchen Garden"),
       body: SafeArea(
-        child: Column(
-          children: [
-            Column(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 30),
-                Center(
-                  child: Text(
-                    "Customize for expert Kitchen \ngardening services",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
-                  ),
+                SizedBox(height: 10),
+                Text(
+                  "Self details to be filled :",
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 19),
                 ),
                 SizedBox(height: 30),
                 Stack(
+                  clipBehavior: Clip.none,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      padding: const EdgeInsets.only(top: 100),
                       child: Image.asset(AppAssets.serviceScreenImage),
                     ),
-                    Positioned(
-                        top: 100,
-                        right: 0,
-                        child: Image.asset(AppAssets.serviceScreenImage3,
-                            height: 30)),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      top: 40,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: DropdownButtonHideUnderline(
+                    Column(
+                      children: [
+                        containerBoxShadowWidget(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              submitTextField("House Type : ", houseController),
+                              SizedBox(height: 10),
+                              submitTextField(
+                                  "Building Format : ", buildingController),
+                              SizedBox(height: 10),
+                              submitTextField("Floor : ", floorController),
+                              SizedBox(height: 10),
+                              submitTextField(
+                                  "House Facing : ", facingController),
+                              SizedBox(height: 30),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        DropdownButtonHideUnderline(
                           child: Container(
                             height: 55,
                             width: double.infinity,
@@ -72,7 +101,7 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                             child: DropdownButton2(
                               hint: Center(
                                 child: Text(
-                                  '- Choose as per the Area -',
+                                  '- Select your Area',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w700),
@@ -80,8 +109,7 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                               ),
                               icon: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Icon(Icons.arrow_drop_down,
-                                    color: Colors.white),
+                                child: Icon(Icons.keyboard_arrow_down_outlined),
                               ),
                               items: dropdownList
                                   .map(
@@ -143,89 +171,61 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                             ),
                           ),
                         ),
-                      ),
-                    ),
+                        SizedBox(height: 30),
+                        containerBoxShadowWidget(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              submitTextField(
+                                  "Gerden Model : ", gerdenModelController),
+                              SizedBox(height: 15),
+                              submitTextField(
+                                  "No. of Planters : ", noOfModelController),
+                              SizedBox(height: 40),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
-                SizedBox(height: 50),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context, rootNavigator: true)
-                        .pushNamed(DetailKitchenScreen.routeName);
-                  },
-                  child: Container(
-                    height: 45,
-                    width: 230,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.4),
-                          blurRadius: 6,
-                        )
-                      ],
-                      color: AppColor.kPrimaryGreen,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Customize",
-                        style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white),
-                      ),
+                SizedBox(height: 40),
+                Container(
+                  height: 40,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: AppColor.kPrimaryGreen),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.3), blurRadius: 5),
+                    ],
+                  ),
+                  child: Center(
+                    child: Text(
+                      "What do you wish to grow",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: AppColor.kPrimaryGreen),
                     ),
                   ),
                 ),
-              ],
-            ),
-            Spacer(),
-            Row(
-              children: [
-                Image.asset(
-                  AppAssets.serviceScreenImage2,
-                  height: 110,
+                SizedBox(height: 30),
+                Center(
+                  child: submitButton(
+                    "Next",
+                    () => Navigator.of(context, rootNavigator: true)
+                        .pushNamed(KitchenOrderScreen.routeName),
+                  ),
                 ),
-                Spacer(),
-                Container(),
+                SizedBox(height: 30),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );
   }
-
-  PreferredSizeWidget appBar() {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(50),
-      child: Padding(
-        padding: EdgeInsets.only(right: 15, top: 30),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CommonBackButton(),
-            Text(
-              "Kitchen Garden",
-              style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
-            ),
-            CircleAvatar(
-              backgroundImage: AssetImage(AppAssets.user),
-              radius: 19,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class KitchenCountry {
-  final String title;
-  final String sqFt;
-
-  KitchenCountry({
-    required this.title,
-    required this.sqFt,
-  });
 }

@@ -4,6 +4,7 @@ import 'package:urban_farmer/core/bindings/dispose_keyboard.dart';
 import 'package:urban_farmer/ui/screen/login/sign_up_screen.dart';
 
 import '../../../const/app_color.dart';
+import '../../widget/back_button.dart';
 import '../../widget/common_text_field.dart';
 import '../dashboad/dashboard_screen.dart';
 import '../forgot/forgot_screen.dart';
@@ -93,33 +94,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     ],
                   ),
                   SizedBox(height: 50),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, DashBoardScreen.routeName);
-                    },
-                    child: Container(
-                      height: 45,
-                      width: 270,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.4),
-                            blurRadius: 6,
-                          )
-                        ],
-                        color: AppColor.kPrimaryGreen,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Sign In",
-                          style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
+                  submitButton(
+                    "Sign In",
+                    () =>
+                        Navigator.pushNamed(context, DashBoardScreen.routeName),
                   ),
                   SizedBox(height: 60),
                   Row(

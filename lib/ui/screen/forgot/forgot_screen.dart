@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/core/bindings/dispose_keyboard.dart';
 import '../../../const/app_color.dart';
+import '../../widget/back_button.dart';
 import '../../widget/common_text_field.dart';
 import '../login/sign_up_screen.dart';
 import 'otp_verification_screen.dart';
@@ -63,34 +64,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         textEditingController: emailIdController,
                       ),
                       SizedBox(height: 40),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context, rootNavigator: true)
-                              .pushNamed(OtpVerificationScreen.routeName);
-                        },
-                        child: Container(
-                          height: 45,
-                          width: 270,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.4),
-                                blurRadius: 6,
-                              )
-                            ],
-                            color: AppColor.kPrimaryGreen,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Submit",
-                              style: TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
-                            ),
-                          ),
-                        ),
+                      submitButton(
+                        "Submit",
+                        () => Navigator.of(context, rootNavigator: true)
+                            .pushNamed(OtpVerificationScreen.routeName),
                       ),
                     ],
                   ),

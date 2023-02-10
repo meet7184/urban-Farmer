@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
-import 'package:urban_farmer/ui/screen/services/widget/dropdown_button.dart';
-import 'package:urban_farmer/ui/screen/setting/order_screen.dart';
+import 'package:urban_farmer/ui/screen/kitchen/widget/dropdown_button.dart';
+import 'package:urban_farmer/ui/widget/back_button.dart';
 
-import '../../cart/cart_screen.dart';
+import '../../widget/app_bar.dart';
+import 'gardeners_visit_screen.dart';
 
 class WhatDoYouWishToGrowScreen extends StatefulWidget {
   static const String routeName = "/whatDoYouWishToGrowScreen";
@@ -31,7 +32,7 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: commonAppBar("Choose"),
+      appBar: backAndTextAndIconAppBar("Choose"),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: SafeArea(
@@ -247,27 +248,10 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
                       ),
                       SizedBox(width: 30),
                       Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context, rootNavigator: true)
-                                .pushNamed(CartScreen.routeName);
-                          },
-                          child: Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: AppColor.kPrimaryGreen,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Checkout",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 20,
-                                    color: Colors.white),
-                              ),
-                            ),
-                          ),
+                        child: submitButton(
+                          "Checkout",
+                          () => Navigator.of(context, rootNavigator: true)
+                              .pushNamed(GardenersVisitScreen.routeName),
                         ),
                       ),
                     ],

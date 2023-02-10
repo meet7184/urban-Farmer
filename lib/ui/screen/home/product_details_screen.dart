@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
+import 'package:urban_farmer/ui/screen/cart/cart_screen.dart';
 import '../../../const/app_icon.dart';
+import '../../widget/app_bar.dart';
+import '../../widget/back_button.dart';
 import '../setting/order_screen.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -20,7 +23,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: commonAppBar("Product Details"),
+      appBar: backAndTextAndIconAppBar("Product Details"),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -263,20 +266,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                     SizedBox(width: 40),
                     Expanded(
-                      child: Container(
-                        height: 45,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: AppColor.kPrimaryGreen,
-                        ),
-                        child: Center(
-                            child: Text(
-                          "Add to Cart",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white),
-                        )),
+                      child: submitButton(
+                        "Add to Cart",
+                        () => Navigator.of(context, rootNavigator: true)
+                            .pushNamed(CartScreen.routeName),
                       ),
                     ),
                   ],

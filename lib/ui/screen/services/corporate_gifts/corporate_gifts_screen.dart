@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:urban_farmer/const/app_color.dart';
+import 'package:urban_farmer/ui/widget/app_bar.dart';
 
 import '../../../../const/app_icon.dart';
 import '../../../widget/back_button.dart';
@@ -20,7 +21,7 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: backAndUserAppBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -203,25 +204,6 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
                 ),
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  PreferredSizeWidget appBar() {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(45),
-      child: Padding(
-        padding: EdgeInsets.only(top: 25, right: 15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CommonBackButton(),
-            CircleAvatar(
-              backgroundImage: AssetImage(AppAssets.user),
-              radius: 19,
-            )
           ],
         ),
       ),

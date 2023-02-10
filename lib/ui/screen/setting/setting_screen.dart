@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_icon.dart';
+import 'package:urban_farmer/ui/widget/app_bar.dart';
 
 import '../../widget/back_button.dart';
 
@@ -18,7 +19,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: backAndTextAppBar("Setting"),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -80,28 +81,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               SizedBox(height: 15),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  PreferredSizeWidget appBar() {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(50),
-      child: Padding(
-        padding: EdgeInsets.only(right: 15, top: 30),
-        child: Row(
-          children: [
-            CommonBackButton(),
-            Expanded(
-              child: Center(
-                child: Text(
-                  "Setting",
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 19),
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );

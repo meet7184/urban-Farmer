@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../const/app_icon.dart';
+import '../../widget/app_bar.dart';
 import '../../widget/back_button.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: commonAppBar("Preview"),
+      appBar: backAndTextAndIconAppBar("Preview"),
       body: SafeArea(
         child: Column(
           children: [
@@ -189,24 +190,4 @@ class OrderScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-PreferredSizeWidget commonAppBar(String text) {
-  return PreferredSize(
-    preferredSize: const Size.fromHeight(50),
-    child: Padding(
-      padding: EdgeInsets.only(right: 15, top: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CommonBackButton(),
-          Text(
-            text,
-            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 19),
-          ),
-          Image.asset(AppAssets.shoppingBagImage, height: 23),
-        ],
-      ),
-    ),
-  );
 }

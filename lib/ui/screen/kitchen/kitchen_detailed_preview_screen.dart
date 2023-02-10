@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:urban_farmer/ui/screen/services/add_order/add_order_screen.dart';
+import 'package:urban_farmer/ui/screen/kitchen/planters/planters_order_screen.dart';
 
-import '../../../../const/app_color.dart';
-import '../../../../const/app_icon.dart';
-import '../../../widget/back_button.dart';
+import '../../../const/app_color.dart';
+import '../../../const/app_icon.dart';
+import '../../widget/back_button.dart';
 
-class DetailedPreviewScreen extends StatefulWidget {
+class KitchenDetailedPreviewScreen extends StatefulWidget {
   static const String routeName = "/detailedPreviewScreen";
-  const DetailedPreviewScreen({Key? key}) : super(key: key);
+  const KitchenDetailedPreviewScreen({Key? key}) : super(key: key);
 
   @override
-  State<DetailedPreviewScreen> createState() => _DetailedPreviewScreenState();
+  State<KitchenDetailedPreviewScreen> createState() =>
+      _KitchenDetailedPreviewScreenState();
 }
 
-class _DetailedPreviewScreenState extends State<DetailedPreviewScreen> {
+class _KitchenDetailedPreviewScreenState
+    extends State<KitchenDetailedPreviewScreen> {
   int quantityIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class _DetailedPreviewScreenState extends State<DetailedPreviewScreen> {
                           style: TextStyle(
                               fontWeight: FontWeight.w800, fontSize: 20),
                         ),
-                        Image.asset(AppAssets.shoppingBagImage, height: 23),
+                        Icon(Icons.shopping_bag_outlined, size: 26),
                       ],
                     ),
                   ),
@@ -185,34 +187,10 @@ class _DetailedPreviewScreenState extends State<DetailedPreviewScreen> {
               ),
             ),
             SizedBox(height: 40),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context, rootNavigator: true)
-                    .pushNamed(AddOrderScreen.routeName);
-              },
-              child: Container(
-                height: 45,
-                width: 210,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.4),
-                      blurRadius: 6,
-                    )
-                  ],
-                  color: AppColor.kPrimaryGreen,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Text(
-                    "Next",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
+            submitButton(
+              "Next",
+              () => Navigator.of(context, rootNavigator: true)
+                  .pushNamed(PlantersOrderScreen.routeName),
             ),
           ],
         ),

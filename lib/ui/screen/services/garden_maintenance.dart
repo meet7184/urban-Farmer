@@ -1,11 +1,14 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
+import 'package:urban_farmer/ui/widget/app_bar.dart';
 
 import '../../../const/app_icon.dart';
 import '../../widget/back_button.dart';
-import '../services/services_category_screen.dart';
-import '../services/widget/dropdown_button.dart';
+import '../../widget/container_submit_textfield_widget.dart';
+import '../kitchen/detail_kitchengarden_screen.dart';
+import '../kitchen/services_category_screen.dart';
+import '../kitchen/widget/dropdown_button.dart';
 
 class GardenMaintenanceScreen extends StatefulWidget {
   static const String routeName = "/gardenMaintenanceScreen";
@@ -17,18 +20,22 @@ class GardenMaintenanceScreen extends StatefulWidget {
 }
 
 class _GardenMaintenanceScreenState extends State<GardenMaintenanceScreen> {
-  String? selected;
+  TextEditingController lengthController = TextEditingController();
+  TextEditingController widthController = TextEditingController();
+
   String? selected2;
-  List<String> list = ["50 Kg bag", "100 Kg bag", "150 Kg bag", "200 Kg bag"];
-  List<KitchenCountry> subscriptionList = [
-    KitchenCountry(title: "Length", sqFt: "Upto 100 Sq ft."),
-    KitchenCountry(title: "Width", sqFt: "Upto 200 Sq ft."),
-    KitchenCountry(title: "Area", sqFt: "Upto 300 Sq ft."),
+  List<String> list = [
+    "1 Quarterly",
+    "2 Quarterly",
+    "3 Quarterly",
+    "4 Quarterly",
+    "5 Quarterly",
+    "6 Quarterly"
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: backAndTextAppBar("Ask for Gardener’s Visit"),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -52,94 +59,48 @@ class _GardenMaintenanceScreenState extends State<GardenMaintenanceScreen> {
                     top: 40,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: DropdownButtonHideUnderline(
-                        child: Container(
-                          height: 55,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.black.withOpacity(0.4),
-                                    blurRadius: 6),
-                              ]),
-                          child: DropdownButton2(
-                            hint: Center(
-                              child: Text(
-                                '- Choose as per the Area -',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w700),
-                              ),
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 5,
                             ),
-                            icon: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.keyboard_arrow_down),
-                            ),
-                            items: subscriptionList
-                                .map(
-                                  (item) => DropdownMenuItem<String>(
-                                    value: item.sqFt,
-                                    child: Column(
-                                      children: [
-                                        Expanded(
-                                          child: Row(
-                                            children: [
-                                              SizedBox(width: 20),
-                                              SizedBox(
-                                                width: 80,
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 15),
-                                                  child: Text(
-                                                    item.title,
-                                                    style: const TextStyle(
-                                                      fontSize: 15,
-                                                      fontWeight:
-                                                          FontWeight.w800,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(width: 30),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 15),
-                                                child: Text(
-                                                  item.sqFt,
-                                                  maxLines: 2,
-                                                  style: const TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Divider(
-                                            thickness: 1, color: Colors.grey),
-                                      ],
-                                    ),
-                                  ),
-                                )
-                                .toList(),
-                            value: selected,
-                            onChanged: (value) {
-                              // print("===> ${value}");
-                              selected = value as String;
-                              setState(() {});
-                            },
-                          ),
+                          ],
+                          borderRadius: BorderRadius.circular(14),
                         ),
+                        child: Center(
+                            child: Text(
+                          "Area : 00 Sq ft.",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, fontSize: 18),
+                        )),
                       ),
                     ),
                   ),
                   Positioned(
                     left: 0,
                     right: 0,
-                    bottom: 20,
+                    top: 100,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 17),
+                      child: containerBoxShadowWidget(Column(
+                        children: [
+                          submitTextField("Length : ", lengthController),
+                          SizedBox(height: 10),
+                          submitTextField("Width : ", widthController),
+                          SizedBox(height: 30),
+                        ],
+                      )),
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 30,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: CommonDropdownButton(
@@ -254,28 +215,6 @@ class _GardenMaintenanceScreenState extends State<GardenMaintenanceScreen> {
               SizedBox(height: 20),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  PreferredSizeWidget appBar() {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(50),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 5, top: 30),
-        child: Row(
-          children: [
-            CommonBackButton(),
-            Expanded(
-              child: Center(
-                child: Text(
-                  "Ask for Gardener’s Visit",
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 19),
-                ),
-              ),
-            ),
-          ],
         ),
       ),
     );

@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
-import 'package:urban_farmer/ui/screen/services/garden_all_page/vegetable_screen.dart';
+import 'package:urban_farmer/ui/screen/kitchen/kitchen_order/vegetable_screen.dart';
 
 import '../../../../const/app_icon.dart';
+import '../../../widget/app_bar.dart';
+import '../../../widget/back_button.dart';
 import '../../setting/order_screen.dart';
-import 'garden_detailed_preview_screen.dart';
+import '../kitchen_detailed_preview_screen.dart';
 
-class GardenDetailsScreen extends StatefulWidget {
+class KitchenOrderScreen extends StatefulWidget {
   static const String routeName = "/gardenDetailsScreen";
-  const GardenDetailsScreen({Key? key}) : super(key: key);
+  const KitchenOrderScreen({Key? key}) : super(key: key);
 
   @override
-  State<GardenDetailsScreen> createState() => _GardenDetailsScreenState();
+  State<KitchenOrderScreen> createState() => _KitchenOrderScreenState();
 }
 
-class _GardenDetailsScreenState extends State<GardenDetailsScreen>
+class _KitchenOrderScreenState extends State<KitchenOrderScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
   @override
@@ -26,7 +28,7 @@ class _GardenDetailsScreenState extends State<GardenDetailsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: commonAppBar("Kitchen Garden"),
+      appBar: backAndTextAndIconAppBar("Kitchen Garden"),
       body: SafeArea(
         child: Column(
           children: [
@@ -81,34 +83,12 @@ class _GardenDetailsScreenState extends State<GardenDetailsScreen>
           ],
         ),
       ),
-      bottomNavigationBar: GestureDetector(
-        onTap: () {
-          Navigator.of(context).pushNamed(DetailedPreviewScreen.routeName);
-        },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-          child: Container(
-            height: 45,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.4),
-                  blurRadius: 6,
-                )
-              ],
-              color: AppColor.kPrimaryGreen,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-                "Preview",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white),
-              ),
-            ),
-          ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+        child: submitButton(
+          "Preview",
+          () => Navigator.of(context, rootNavigator: true)
+              .pushNamed(KitchenDetailedPreviewScreen.routeName),
         ),
       ),
     );
