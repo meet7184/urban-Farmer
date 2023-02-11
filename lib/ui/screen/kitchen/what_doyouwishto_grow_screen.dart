@@ -93,7 +93,7 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
                   children: [
                     Text("Hybrid Vegetable Seeds Kit",
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 17)),
+                            fontWeight: FontWeight.w500, fontSize: 16)),
                     Spacer(),
                     getContainer(),
                   ],
@@ -231,7 +231,7 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
                     children: [
                       Expanded(
                         child: Container(
-                          height: 50,
+                          height: 42,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: Colors.grey),
@@ -241,7 +241,7 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
                             child: Text(
                               "Total : 5000",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 20),
+                                  fontWeight: FontWeight.w700, fontSize: 18),
                             ),
                           ),
                         ),
@@ -269,7 +269,7 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
   Widget getTitle(String text) {
     return Text(
       text,
-      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
     );
   }
 
@@ -277,7 +277,7 @@ class _WhatDoYouWishToGrowScreenState extends State<WhatDoYouWishToGrowScreen> {
     return Text(
       text,
       style: TextStyle(
-          fontWeight: FontWeight.w500, fontSize: 15, color: Color(0xff3150FE)),
+          fontWeight: FontWeight.w500, fontSize: 14, color: Color(0xff3150FE)),
     );
   }
 

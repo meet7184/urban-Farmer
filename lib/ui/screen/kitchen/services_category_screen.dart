@@ -1,11 +1,10 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-
 import '../../../const/app_color.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/app_bar.dart';
-import '../../widget/back_button.dart';
 import 'detail_kitchengarden_screen.dart';
+import 'gardeners_visit_screen.dart';
 
 class ServicesCategoryScreen extends StatefulWidget {
   static const String routeName = "/servicesCategoryScreen";
@@ -16,12 +15,12 @@ class ServicesCategoryScreen extends StatefulWidget {
 }
 
 class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
-  String? selected;
+  KitchenCountry? selected;
   List<KitchenCountry> dropdownList = [
-    KitchenCountry(title: "Small", sqFt: "Upto 100 Sq ft."),
+    KitchenCountry(title: "Small ", sqFt: "Upto 100 Sq ft."),
     KitchenCountry(title: "Medium", sqFt: "Upto 200 Sq ft."),
     KitchenCountry(title: "Large", sqFt: "Upto 300 Sq ft."),
-    KitchenCountry(title: "Extended Farm", sqFt: "300 Sq ft. & Above"),
+    KitchenCountry(title: "ExtendedFarm", sqFt: "300 Sq ft. & Above"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -86,8 +85,8 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                               ),
                               items: dropdownList
                                   .map(
-                                    (item) => DropdownMenuItem<String>(
-                                      value: item.sqFt,
+                                    (item) => DropdownMenuItem<KitchenCountry>(
+                                      value: item,
                                       child: Column(
                                         children: [
                                           Expanded(
@@ -95,7 +94,7 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                                               children: [
                                                 SizedBox(width: 20),
                                                 SizedBox(
-                                                  width: 80,
+                                                  width: 110,
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsets.only(
@@ -110,7 +109,7 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                                                     ),
                                                   ),
                                                 ),
-                                                SizedBox(width: 30),
+                                                //SizedBox(width: 10),
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.only(
@@ -137,8 +136,8 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                                   .toList(),
                               value: selected,
                               onChanged: (value) {
-                                // print("===> ${value}");
-                                selected = value as String;
+                                print("===> ${value}");
+                                selected = value as KitchenCountry;
                                 setState(() {});
                               },
                             ),
@@ -149,11 +148,46 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                   ],
                 ),
                 SizedBox(height: 50),
-                submitButton(
-                  "Customize",
-                  () => Navigator.of(context, rootNavigator: true)
-                      .pushNamed(DetailKitchenGardenScreen.routeName),
+                GestureDetector(
+                  onTap: () {
+                    if (selected!.title == "ExtendedFarm") {
+                      Navigator.of(context, rootNavigator: true)
+                          .pushNamed(GardenersVisitScreen.routeName);
+                    } else {
+                      Navigator.of(context, rootNavigator: true)
+                          .pushNamed(DetailKitchenGardenScreen.routeName);
+                    }
+                  },
+                  child: Container(
+                    height: 45,
+                    width: 270,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          blurRadius: 6,
+                        )
+                      ],
+                      color: AppColor.kPrimaryGreen,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Customize",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
+                // submitButton(
+                //     "Customize", () => print("mmm ==> ${selected!.title}"),
+                //     if(selected == 3){}
+                //     // Navigator.of(context, rootNavigator: true)
+                //     // .pushNamed(DetailKitchenGardenScreen.routeName),
+                //     ),
               ],
             ),
             Spacer(),

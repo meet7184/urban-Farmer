@@ -16,12 +16,12 @@ class CorporateGiftsScreen extends StatefulWidget {
 }
 
 class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
-  List<String> list = ["Colleagues", "Employees", "Co"];
+  List<String> list = ["Colleagues", "Employees", "Colleagues"];
   int selectIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: backAndUserAppBar(),
+      appBar: appBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -31,53 +31,67 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 30),
-                  Text(
-                    "Who do Ypu Want",
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25),
-                  ),
-                  Text(
-                    "make happy ?",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 25,
-                        color: AppColor.kPrimaryGreen),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Who do Ypu Want",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, fontSize: 25),
+                        ),
+                        Text(
+                          "make happy?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25,
+                              color: AppColor.kPrimaryGreen),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 20),
-                  Row(
-                    children: list
-                        .asMap()
-                        .map((index, value) => MapEntry(
-                              index,
-                              GestureDetector(
-                                onTap: () {
-                                  selectIndex = index;
-                                  setState(() {});
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 10),
-                                  child: Container(
-                                    height: 36,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                      color: selectIndex == index
-                                          ? Colors.black
-                                          : Colors.white,
-                                      borderRadius: BorderRadius.circular(15),
-                                      border: Border.all(color: Colors.grey),
+                  SingleChildScrollView(
+                    clipBehavior: Clip.none,
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: list
+                          .asMap()
+                          .map((index, value) => MapEntry(
+                                index,
+                                GestureDetector(
+                                  onTap: () {
+                                    selectIndex = index;
+                                    setState(() {});
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    child: Container(
+                                      height: 36,
+                                      width: 130,
+                                      decoration: BoxDecoration(
+                                        color: selectIndex == index
+                                            ? Colors.black
+                                            : Colors.white,
+                                        borderRadius: BorderRadius.circular(15),
+                                        border: Border.all(color: Colors.grey),
+                                      ),
+                                      child: Center(
+                                          child: Text(value,
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  color: selectIndex == index
+                                                      ? Colors.white
+                                                      : Colors.black))),
                                     ),
-                                    child: Center(
-                                        child: Text(value,
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: selectIndex == index
-                                                    ? Colors.white
-                                                    : Colors.black))),
                                   ),
                                 ),
-                              ),
-                            ))
-                        .values
-                        .toList(),
+                              ))
+                          .values
+                          .toList(),
+                    ),
                   ),
                 ],
               ),
@@ -94,7 +108,7 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
                     children: [
                       SizedBox(height: 10),
@@ -105,9 +119,7 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
                           Text(
                             "Popular Gifts",
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 25,
-                                color: AppColor.kPrimaryGreen),
+                                fontWeight: FontWeight.w700, fontSize: 25),
                           ),
                           Spacer(),
                           Container(
@@ -129,7 +141,7 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 25),
+                      SizedBox(height: 15),
                       Expanded(
                         child: SingleChildScrollView(
                           physics: BouncingScrollPhysics(),
@@ -204,6 +216,22 @@ class _CorporateGiftsScreenState extends State<CorporateGiftsScreen> {
                 ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  PreferredSizeWidget appBar() {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(45),
+      child: Padding(
+        padding: EdgeInsets.only(top: 35, right: 15, left: 15),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CommonBackButton(),
+            UserProfile(),
           ],
         ),
       ),

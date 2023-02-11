@@ -26,65 +26,64 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       },
       child: Scaffold(
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 10),
-                      cancelButton(),
-                      SizedBox(height: 30),
-                      Center(
-                        child: Text(
-                          "Forgot \n Password ?",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 38,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                      Text(
-                        "Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  children: [
+                    SizedBox(height: 10),
+                    cancelButton(),
+                    SizedBox(height: 30),
+                    Center(
+                      child: Text(
+                        "Forgot \n Password ?",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.kTextColor,
+                          fontSize: 38,
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
-                      SizedBox(height: 40),
-                      CustomTextField(
-                        validator: (val) =>
-                            val!.trim().isEmpty ? "field required" : null,
-                        textFieldType: TextFieldType.enterUserName,
-                        textEditingController: emailIdController,
+                    ),
+                    SizedBox(height: 30),
+                    Text(
+                      "Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                        color: AppColor.kTextColor,
                       ),
-                      SizedBox(height: 40),
-                      submitButton(
-                        "Submit",
-                        () => Navigator.of(context, rootNavigator: true)
-                            .pushNamed(OtpVerificationScreen.routeName),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Row(
-                  children: [
-                    Container(),
-                    Spacer(),
-                    Image.asset(
-                      AppAssets.forgotScreenImag,
-                      height: 300,
+                    ),
+                    SizedBox(height: 40),
+                    CustomTextField(
+                      validator: (val) =>
+                          val!.trim().isEmpty ? "field required" : null,
+                      textFieldType: TextFieldType.enterUserName,
+                      textEditingController: emailIdController,
+                    ),
+                    SizedBox(height: 40),
+                    submitButton(
+                      "Submit",
+                      () => Navigator.of(context, rootNavigator: true)
+                          .pushNamed(OtpVerificationScreen.routeName),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              Spacer(),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  Container(),
+                  Spacer(),
+                  Image.asset(
+                    AppAssets.forgotScreenImag,
+                    height: 260,
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

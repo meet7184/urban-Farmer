@@ -3,6 +3,7 @@ import 'package:urban_farmer/ui/screen/kitchen/what_doyouwishto_grow_screen.dart
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
 import '../../../widget/back_button.dart';
+import '../../../widget/shopping_screen.dart';
 
 class PlantersPreviewScreen extends StatefulWidget {
   static const String routeName = "/orderDetailedPreviewScreen";
@@ -31,7 +32,7 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 15),
+                    padding: const EdgeInsets.only(right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -39,9 +40,14 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                         Text(
                           "Preview",
                           style: TextStyle(
-                              fontWeight: FontWeight.w800, fontSize: 20),
+                              fontWeight: FontWeight.w800, fontSize: 19),
                         ),
-                        Icon(Icons.shopping_bag_outlined, size: 26),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.of(context, rootNavigator: true)
+                                  .pushNamed(ShoppingScreen.routeName);
+                            },
+                            icon: Icon(Icons.shopping_bag_outlined, size: 26)),
                       ],
                     ),
                   ),
@@ -83,7 +89,7 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                                                 Spacer(),
                                                 Image.asset(
                                                   AppAssets.deleteImage,
-                                                  height: 22,
+                                                  height: 20,
                                                   color: Colors.black,
                                                 ),
                                               ],
@@ -114,7 +120,7 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                                                     }
                                                   },
                                                   child: Container(
-                                                    height: 20,
+                                                    height: 18,
                                                     width: 20,
                                                     decoration: BoxDecoration(
                                                       border: Border.all(
@@ -122,14 +128,14 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Icon(Icons.remove,
-                                                        size: 16),
+                                                        size: 15),
                                                   ),
                                                 ),
                                                 SizedBox(width: 10),
                                                 Text(
                                                   quantityIndex.toString(),
                                                   style: const TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 16,
                                                       fontWeight:
                                                           FontWeight.w500),
                                                 ),
@@ -141,15 +147,15 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                                                     setState(() {});
                                                   },
                                                   child: Container(
-                                                    height: 20,
-                                                    width: 20,
+                                                    height: 18,
+                                                    width: 18,
                                                     decoration: BoxDecoration(
                                                       border: Border.all(
                                                           color: Colors.black),
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Icon(Icons.add,
-                                                        size: 16),
+                                                        size: 15),
                                                   ),
                                                 ),
                                               ],
@@ -165,8 +171,8 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                   ),
                   SizedBox(height: 30),
                   Container(
-                    height: 45,
-                    width: 260,
+                    height: 40,
+                    width: 240,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -175,7 +181,7 @@ class _PlantersPreviewScreenState extends State<PlantersPreviewScreen> {
                       child: Text(
                         "Total : 6578/-",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w700),
+                            fontSize: 17, fontWeight: FontWeight.w700),
                       ),
                     ),
                   ),

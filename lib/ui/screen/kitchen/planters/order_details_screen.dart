@@ -21,171 +21,165 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
     return Scaffold(
       appBar: appBar(),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 280,
+                  width: double.infinity,
+                  child:
+                      Image.asset(AppAssets.vegetableImage, fit: BoxFit.fill),
+                ),
+                Positioned(
+                    right: 20,
+                    bottom: 20,
+                    child: Image.asset(
+                      AppAssets.bookImage,
+                      height: 17,
+                      color: Colors.white,
+                    )),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 320,
-                    width: double.infinity,
-                    child:
-                        Image.asset(AppAssets.vegetableImage, fit: BoxFit.fill),
+                  SizedBox(height: 20),
+                  Text(
+                    "Lorem Ipsum is that",
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ),
-                  Positioned(
-                      right: 20,
-                      bottom: 20,
-                      child: Image.asset(
-                        AppAssets.bookImage,
-                        height: 20,
-                        color: Colors.white,
-                      )),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 20),
-                    Text(
-                      "Lorem Ipsum is that",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Size : 20",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: availableSizeList
-                          .asMap()
-                          .map((index, value) => MapEntry(
-                                index,
-                                GestureDetector(
-                                  onTap: () {
-                                    availableSizeSelectIndex = index;
-                                    setState(() {});
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(right: 15),
-                                    child: Container(
-                                      height: 46,
-                                      width: 55,
-                                      decoration: BoxDecoration(
-                                        color: availableSizeSelectIndex == index
-                                            ? Colors.black
-                                            : Colors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                        border: Border.all(
-                                            color: Color(0xff000000)),
-                                      ),
-                                      child: Center(
-                                          child: Text(value,
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color:
-                                                      availableSizeSelectIndex ==
-                                                              index
-                                                          ? Colors.white
-                                                          : Colors.black))),
+                  SizedBox(height: 20),
+                  Text(
+                    "Size : 20",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: availableSizeList
+                        .asMap()
+                        .map((index, value) => MapEntry(
+                              index,
+                              GestureDetector(
+                                onTap: () {
+                                  availableSizeSelectIndex = index;
+                                  setState(() {});
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: Container(
+                                    height: 40,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      color: availableSizeSelectIndex == index
+                                          ? Colors.black
+                                          : Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      border:
+                                          Border.all(color: Color(0xff000000)),
                                     ),
+                                    child: Center(
+                                        child: Text(value,
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color:
+                                                    availableSizeSelectIndex ==
+                                                            index
+                                                        ? Colors.white
+                                                        : Colors.black))),
                                   ),
                                 ),
-                              ))
-                          .values
-                          .toList(),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Quantity",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            if (quantityIndex <= 0) {
-                            } else {
-                              quantityIndex = quantityIndex - 1;
-                              setState(() {});
-                            }
-                          },
-                          icon: Icon(Icons.remove, size: 24),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          quantityIndex.toString(),
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                        SizedBox(width: 10),
-                        IconButton(
-                          onPressed: () {
-                            quantityIndex = quantityIndex + 1;
-                            setState(() {});
-                          },
-                          icon: Icon(Icons.add, size: 24),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Lorem Ipsum is that it has a more-or-less ",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-                    ),
-                    SizedBox(height: 15),
-                    Divider(thickness: 1.5),
-                    SizedBox(height: 10),
-                    Row(
-                      children: [
-                        SizedBox(width: 20),
-                        Text(
-                          "Total : 2100",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 20),
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context, rootNavigator: true)
-                                .pushNamed(PlantersPreviewScreen.routeName);
-                          },
-                          child: Container(
-                            height: 40,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: AppColor.kPrimaryGreen,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Add",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white),
                               ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                  ],
+                            ))
+                        .values
+                        .toList(),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Quantity",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          if (quantityIndex <= 0) {
+                          } else {
+                            quantityIndex = quantityIndex - 1;
+                            setState(() {});
+                          }
+                        },
+                        icon: Icon(Icons.remove, size: 24),
+                      ),
+                      SizedBox(width: 10),
+                      Text(
+                        quantityIndex.toString(),
+                        style: const TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(width: 10),
+                      IconButton(
+                        onPressed: () {
+                          quantityIndex = quantityIndex + 1;
+                          setState(() {});
+                        },
+                        icon: Icon(Icons.add, size: 24),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "Lorem Ipsum is that it has a more-or-less ",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                  ),
+                  SizedBox(height: 30),
+                  Divider(thickness: 1.5),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 20, left: 15, right: 15),
+        child: Row(
+          children: [
+            SizedBox(width: 20),
+            Text(
+              "Total : 2100",
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+            ),
+            Spacer(),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context, rootNavigator: true)
+                    .pushNamed(PlantersPreviewScreen.routeName);
+              },
+              child: Container(
+                height: 40,
+                width: 110,
+                decoration: BoxDecoration(
+                  color: AppColor.kPrimaryGreen,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Text(
+                    "Add",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                  ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

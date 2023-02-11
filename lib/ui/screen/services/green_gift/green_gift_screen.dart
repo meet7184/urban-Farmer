@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_icon.dart';
+import '../../../widget/app_bar.dart';
 import '../../../widget/back_button.dart';
-import '../online_gardening_screen.dart';
 import 'indoor_screen.dart';
 
 class GreenGiftScreen extends StatefulWidget {
@@ -34,17 +34,13 @@ class _GreenGiftScreenState extends State<GreenGiftScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CommonBackButton(),
-                          const Spacer(),
-                          Icon(Icons.shopping_bag_outlined, size: 25),
-                          //Image.asset(AppAssets.shoppingBagImage, height: 23),
-                        ],
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CommonBackButton(),
+                        const Spacer(),
+                        IconsShopping(),
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
@@ -54,17 +50,16 @@ class _GreenGiftScreenState extends State<GreenGiftScreen> {
                           Text(
                             "Green",
                             style: TextStyle(
-                                fontSize: 40, fontWeight: FontWeight.w700),
+                                fontSize: 36, fontWeight: FontWeight.w700),
                           ),
                           Text(
                             "all space around you!",
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w400),
+                                fontSize: 18, fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.only(left: 20, right: 10),
                       child: Row(
@@ -75,63 +70,72 @@ class _GreenGiftScreenState extends State<GreenGiftScreen> {
                               .map((index, value) => MapEntry(
                                   index,
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 30),
+                                    padding: const EdgeInsets.only(top: 25),
                                     child: GestureDetector(
                                       onTap: () {
                                         selectIndex = index;
                                         setState(() {});
                                       },
-                                      child: selectIndex == index
-                                          ? Column(
-                                              children: [
-                                                Image.asset(
-                                                  value.image,
-                                                  height: 30,
-                                                ),
-                                                SizedBox(height: 5),
-                                                Text(
-                                                  value.name,
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 15),
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(
-                                                  height: 5,
-                                                  width: 60,
-                                                  decoration: BoxDecoration(
-                                                      color: Color(0xff444444),
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                              topLeft: Radius
-                                                                  .circular(10),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      10))),
-                                                ),
-                                              ],
-                                            )
-                                          : Column(
-                                              children: [
-                                                Image.asset(
-                                                  value.image,
-                                                  height: 30,
-                                                  color: Colors.black38,
-                                                ),
-                                                SizedBox(height: 5),
-                                                Text(
-                                                  value.name,
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontSize: 15,
+                                      child: Container(
+                                        color: Colors.transparent,
+                                        child: selectIndex == index
+                                            ? Column(
+                                                children: [
+                                                  SizedBox(height: 5),
+                                                  Image.asset(
+                                                    value.image,
+                                                    height: 25,
+                                                  ),
+                                                  SizedBox(height: 5),
+                                                  Text(
+                                                    value.name,
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontSize: 14),
+                                                  ),
+                                                  SizedBox(height: 10),
+                                                  Container(
+                                                    height: 5,
+                                                    width: 60,
+                                                    decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xff444444),
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        10),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        10))),
+                                                  ),
+                                                ],
+                                              )
+                                            : Column(
+                                                children: [
+                                                  SizedBox(height: 5),
+                                                  Image.asset(value.image,
+                                                      height: 25,
                                                       color: Colors.black38),
-                                                ),
-                                                SizedBox(height: 10),
-                                                Container(),
-                                              ],
-                                            ),
+                                                  SizedBox(height: 5),
+                                                  Text(
+                                                    value.name,
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontSize: 14,
+                                                        color: Colors.black38),
+                                                  ),
+                                                  SizedBox(height: 10),
+                                                  Container(
+                                                    height: 5,
+                                                    width: 60,
+                                                    color: Colors.transparent,
+                                                  ),
+                                                ],
+                                              ),
+                                      ),
                                     ),
                                   )))
                               .values
@@ -148,9 +152,9 @@ class _GreenGiftScreenState extends State<GreenGiftScreen> {
                 index: selectIndex,
                 children: const [
                   IndoorScreen(),
-                  SizedBox(),
-                  SizedBox(),
-                  SizedBox(),
+                  IndoorScreen(),
+                  IndoorScreen(),
+                  IndoorScreen(),
                 ],
               ),
             ),

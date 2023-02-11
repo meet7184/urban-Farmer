@@ -67,7 +67,6 @@ class _CommonDropdownButtonState extends State<CommonDropdownButton> {
                           ),
                         ),
                       ),
-                      Divider(thickness: 1, color: Colors.grey),
                     ],
                   ),
                 ),

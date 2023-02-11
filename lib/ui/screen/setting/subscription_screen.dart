@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/app_bar.dart';
-import 'order_screen.dart';
 
 class SubscriptionScreen extends StatelessWidget {
   static const String routeName = "/subscriptionScreen";
@@ -119,7 +118,7 @@ class SubscriptionScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 200),
+              SizedBox(height: 170),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(

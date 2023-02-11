@@ -32,51 +32,41 @@ class _KitchenOrderScreenState extends State<KitchenOrderScreen>
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 10),
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                SizedBox(
-                  height: 50,
-                  child: TabBar(
-                    isScrollable: true,
-                    indicator: UnderlineTabIndicator(
-                        borderSide: BorderSide(
-                          width: 3,
-                          color: AppColor.kPrimaryGreen,
-                        ),
-                        insets: EdgeInsets.symmetric(horizontal: 10)),
-                    labelStyle:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    labelColor: AppColor.kPrimaryGreen,
-                    unselectedLabelColor: Colors.black38,
-                    controller: tabController,
-                    onTap: (val) {},
-                    tabs: [
-                      "Vegetable",
-                      "Fruit",
-                      "Decoratives",
-                      "Vastu",
-                    ].map((e) => Tab(text: e)).toList(),
+            SizedBox(
+              height: 50,
+              child: TabBar(
+                isScrollable: true,
+                indicator: UnderlineTabIndicator(
+                  borderSide: BorderSide(
+                    width: 3,
+                    color: AppColor.kPrimaryGreen,
                   ),
+                  insets: EdgeInsets.symmetric(horizontal: 10),
                 ),
-                Positioned(
-                  bottom: -2,
-                  left: 0,
-                  right: 0,
-                  child: Divider(color: Colors.grey, height: 5, thickness: 1.0),
-                ),
-              ],
+                labelStyle:
+                    TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: AppColor.kPrimaryGreen,
+                unselectedLabelColor: Colors.black38,
+                controller: tabController,
+                onTap: (val) {},
+                tabs: [
+                  "Vegetable",
+                  "Fruit",
+                  "Decoratives",
+                  "Vastu",
+                ].map((e) => Tab(text: e)).toList(),
+              ),
             ),
+            Container(height: 2, color: Colors.black38),
             Expanded(
               child: TabBarView(
                 controller: tabController,
                 children: const [
                   VegetableScreen(),
-                  SizedBox(),
-                  SizedBox(),
-                  SizedBox(),
+                  VegetableScreen(),
+                  VegetableScreen(),
+                  VegetableScreen(),
                 ],
               ),
             ),

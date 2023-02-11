@@ -47,7 +47,7 @@ class _AddressScreenState extends State<AddressScreen> {
                       Text(
                         "Select",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 20),
+                            fontWeight: FontWeight.w600, fontSize: 18),
                       ),
                       Spacer(),
                       Text(
@@ -71,7 +71,6 @@ class _AddressScreenState extends State<AddressScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const SizedBox(height: 10),
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -83,12 +82,12 @@ class _AddressScreenState extends State<AddressScreen> {
                                               : "Pooja Bhamboo, (Pincode)",
                                           style: const TextStyle(
                                               fontWeight: FontWeight.w600,
-                                              fontSize: 17),
+                                              fontSize: 16),
                                         ),
                                       ),
                                       Container(
-                                        height: 20,
-                                        width: 20,
+                                        height: 18,
+                                        width: 18,
                                         decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                             border: Border.all(
@@ -98,7 +97,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                         child: e == accountManageType
                                             ? const Center(
                                                 child: CircleAvatar(
-                                                  radius: 5,
+                                                  radius: 4,
                                                   backgroundColor: Colors.black,
                                                 ),
                                               )
@@ -106,17 +105,17 @@ class _AddressScreenState extends State<AddressScreen> {
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 15),
+                                  const SizedBox(height: 8),
                                   Text(
                                     e == AccountManageType.deactivate
                                         ? "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
                                         : "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w300,
-                                        fontSize: 15),
+                                        fontSize: 14),
                                   ),
-                                  const SizedBox(height: 10),
-                                  Divider(thickness: 3),
+                                  const SizedBox(height: 8),
+                                  Divider(thickness: 2),
                                 ],
                               ),
                             ),
@@ -127,11 +126,12 @@ class _AddressScreenState extends State<AddressScreen> {
             ),
           ),
           SizedBox(height: 30),
+          SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: List.generate(
-                  2,
+                  3,
                   (index) => Padding(
                         padding: const EdgeInsets.only(bottom: 15),
                         child: Row(
@@ -160,7 +160,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                         Spacer(),
                                         Image.asset(
                                           AppAssets.deleteImage,
-                                          height: 22,
+                                          height: 18,
                                           color: Colors.black,
                                         ),
                                       ],
@@ -189,21 +189,21 @@ class _AddressScreenState extends State<AddressScreen> {
                                             }
                                           },
                                           child: Container(
-                                            height: 20,
-                                            width: 20,
+                                            height: 18,
+                                            width: 18,
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Colors.black),
                                               shape: BoxShape.circle,
                                             ),
-                                            child: Icon(Icons.remove, size: 16),
+                                            child: Icon(Icons.remove, size: 15),
                                           ),
                                         ),
                                         SizedBox(width: 10),
                                         Text(
                                           quantityIndex.toString(),
                                           style: const TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 15,
                                               fontWeight: FontWeight.w500),
                                         ),
                                         SizedBox(width: 10),
@@ -213,14 +213,14 @@ class _AddressScreenState extends State<AddressScreen> {
                                             setState(() {});
                                           },
                                           child: Container(
-                                            height: 20,
-                                            width: 20,
+                                            height: 18,
+                                            width: 18,
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Colors.black),
                                               shape: BoxShape.circle,
                                             ),
-                                            child: Icon(Icons.add, size: 16),
+                                            child: Icon(Icons.add, size: 15),
                                           ),
                                         ),
                                       ],
@@ -251,7 +251,7 @@ class _AddressScreenState extends State<AddressScreen> {
                 SizedBox(height: 20),
                 Text(
                   "Price Details",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19),
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                 ),
                 SizedBox(height: 20),
                 Padding(
@@ -261,13 +261,13 @@ class _AddressScreenState extends State<AddressScreen> {
                       Text(
                         "Price (3 items)",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 19),
+                            fontWeight: FontWeight.w600, fontSize: 17),
                       ),
                       Spacer(),
                       Text(
                         "Rs. 5750",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 18),
+                            fontWeight: FontWeight.w600, fontSize: 17),
                       ),
                     ],
                   ),
@@ -280,14 +280,14 @@ class _AddressScreenState extends State<AddressScreen> {
                       Text(
                         "Discounts",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 19),
+                            fontWeight: FontWeight.w600, fontSize: 17),
                       ),
                       Spacer(),
                       Text(
                         "- Rs. 750",
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 18,
+                            fontSize: 17,
                             color: AppColor.kPrimaryGreen),
                       ),
                     ],
@@ -301,13 +301,13 @@ class _AddressScreenState extends State<AddressScreen> {
                       Text(
                         "Total Amount",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 19),
+                            fontWeight: FontWeight.w700, fontSize: 17),
                       ),
                       Spacer(),
                       Text(
                         "Rs. 5000",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 19),
+                            fontWeight: FontWeight.w700, fontSize: 17),
                       ),
                     ],
                   ),
@@ -315,22 +315,20 @@ class _AddressScreenState extends State<AddressScreen> {
                 SizedBox(height: 30),
                 GestureDetector(
                   onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: AppColor.kPrimaryGreen,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Checkout",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                              color: Colors.white),
-                        ),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 50),
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: AppColor.kPrimaryGreen,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Checkout",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                            color: Colors.white),
                       ),
                     ),
                   ),

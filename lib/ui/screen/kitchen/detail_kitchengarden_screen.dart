@@ -27,7 +27,7 @@ class _DetailKitchenGardenScreenState extends State<DetailKitchenGardenScreen>
   TextEditingController gerdenModelController = TextEditingController();
   TextEditingController noOfModelController = TextEditingController();
   late TabController tabController;
-  String? selected;
+  KitchenCountry? selected;
   List<KitchenCountry> dropdownList = [
     KitchenCountry(title: "Small", sqFt: "Upto 100 Sq ft."),
     KitchenCountry(title: "Medium", sqFt: "Upto 200 Sq ft."),
@@ -56,7 +56,7 @@ class _DetailKitchenGardenScreenState extends State<DetailKitchenGardenScreen>
                 SizedBox(height: 10),
                 Text(
                   "Self details to be filled :",
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 19),
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
                 ),
                 SizedBox(height: 30),
                 Stack(
@@ -113,8 +113,8 @@ class _DetailKitchenGardenScreenState extends State<DetailKitchenGardenScreen>
                               ),
                               items: dropdownList
                                   .map(
-                                    (item) => DropdownMenuItem<String>(
-                                      value: item.sqFt,
+                                    (item) => DropdownMenuItem<KitchenCountry>(
+                                      value: item,
                                       child: Column(
                                         children: [
                                           Expanded(
@@ -164,8 +164,8 @@ class _DetailKitchenGardenScreenState extends State<DetailKitchenGardenScreen>
                                   .toList(),
                               value: selected,
                               onChanged: (value) {
-                                // print("===> ${value}");
-                                selected = value as String;
+                                print("===> ${value}");
+                                selected = value as KitchenCountry;
                                 setState(() {});
                               },
                             ),
@@ -190,25 +190,32 @@ class _DetailKitchenGardenScreenState extends State<DetailKitchenGardenScreen>
                   ],
                 ),
                 SizedBox(height: 40),
-                Container(
-                  height: 40,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: AppColor.kPrimaryGreen),
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.3), blurRadius: 5),
-                    ],
-                  ),
-                  child: Center(
-                    child: Text(
-                      "What do you wish to grow",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
-                          color: AppColor.kPrimaryGreen),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context, rootNavigator: true)
+                        .pushNamed(KitchenOrderScreen.routeName);
+                  },
+                  child: Container(
+                    height: 40,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: AppColor.kPrimaryGreen),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 5),
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        "What do you wish to grow",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17,
+                            color: AppColor.kPrimaryGreen),
+                      ),
                     ),
                   ),
                 ),

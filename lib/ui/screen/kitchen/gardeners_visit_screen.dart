@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/core/bindings/dispose_keyboard.dart';
-
-import '../../../../const/app_color.dart';
 import '../../widget/app_bar.dart';
 import '../../widget/back_button.dart';
 import '../../widget/common_text_field.dart';
@@ -56,12 +54,12 @@ class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
                   SizedBox(height: 30),
                   Text(
                     "Lorem Ipsum is that it has a more-or-less",
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 21),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
                   ),
                   SizedBox(height: 10),
                   Text(
                     "You can reach us anytime viahi@gmail.com",
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 21),
+                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                   ),
                   SizedBox(height: 30),
                   getTitle("Name"),
@@ -172,7 +170,7 @@ class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
                   getTitle("Inclusions : "),
                   SizedBox(height: 10),
                   Padding(
@@ -187,7 +185,7 @@ class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
                   Center(
                     child: submitButton(
                       "Make Payment",
@@ -195,7 +193,7 @@ class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
                           .pushNamed(CartScreen.routeName),
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
@@ -215,7 +213,7 @@ class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
   Widget inclusionsText(String text) {
     return Text(
       text,
-      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 17),
+      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
     );
   }
 }
