@@ -14,7 +14,7 @@ Widget submitTextField(String text, TextEditingController controller) {
     children: [
       Text(
         text,
-        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
       ),
       Expanded(
         child: SizedBox(

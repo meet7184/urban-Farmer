@@ -40,7 +40,7 @@ class _OffersScreenState extends State<OffersScreen> {
                   SizedBox(height: 15),
                   Text(
                     "Apply Coupon",
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19),
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                   ),
                   SizedBox(height: 10),
                   Row(
@@ -48,10 +48,10 @@ class _OffersScreenState extends State<OffersScreen> {
                       Text(
                         "Save Rs. 120 with URBANNEW",
                         style: TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 17),
+                            fontWeight: FontWeight.w500, fontSize: 16),
                       ),
                       Spacer(),
-                      Icon(Icons.arrow_forward_ios_sharp, size: 18),
+                      Icon(Icons.arrow_forward_ios_sharp, size: 16),
                     ],
                   ),
                   SizedBox(height: 6),
@@ -98,7 +98,7 @@ class _OffersScreenState extends State<OffersScreen> {
                                         Spacer(),
                                         Image.asset(
                                           AppAssets.deleteImage,
-                                          height: 22,
+                                          height: 18,
                                           color: Colors.black,
                                         ),
                                       ],
@@ -127,21 +127,21 @@ class _OffersScreenState extends State<OffersScreen> {
                                             }
                                           },
                                           child: Container(
-                                            height: 20,
-                                            width: 20,
+                                            height: 18,
+                                            width: 18,
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Colors.black),
                                               shape: BoxShape.circle,
                                             ),
-                                            child: Icon(Icons.remove, size: 16),
+                                            child: Icon(Icons.remove, size: 15),
                                           ),
                                         ),
                                         SizedBox(width: 10),
                                         Text(
                                           quantityIndex.toString(),
                                           style: const TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 15,
                                               fontWeight: FontWeight.w500),
                                         ),
                                         SizedBox(width: 10),
@@ -151,14 +151,14 @@ class _OffersScreenState extends State<OffersScreen> {
                                             setState(() {});
                                           },
                                           child: Container(
-                                            height: 20,
-                                            width: 20,
+                                            height: 18,
+                                            width: 18,
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Colors.black),
                                               shape: BoxShape.circle,
                                             ),
-                                            child: Icon(Icons.add, size: 16),
+                                            child: Icon(Icons.add, size: 15),
                                           ),
                                         ),
                                       ],
@@ -189,7 +189,7 @@ class _OffersScreenState extends State<OffersScreen> {
                 SizedBox(height: 20),
                 Text(
                   "Price Details",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 19),
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                 ),
                 SizedBox(height: 20),
                 Padding(
@@ -199,13 +199,13 @@ class _OffersScreenState extends State<OffersScreen> {
                       Text(
                         "Price (3 items)",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 19),
+                            fontWeight: FontWeight.w600, fontSize: 17),
                       ),
                       Spacer(),
                       Text(
                         "Rs. 5750",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 18),
+                            fontWeight: FontWeight.w600, fontSize: 17),
                       ),
                     ],
                   ),
@@ -218,14 +218,14 @@ class _OffersScreenState extends State<OffersScreen> {
                       Text(
                         "Discounts",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 19),
+                            fontWeight: FontWeight.w600, fontSize: 17),
                       ),
                       Spacer(),
                       Text(
                         "- Rs. 750",
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 18,
+                            fontSize: 17,
                             color: AppColor.kPrimaryGreen),
                       ),
                     ],
@@ -239,13 +239,13 @@ class _OffersScreenState extends State<OffersScreen> {
                       Text(
                         "Total Amount",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 19),
+                            fontWeight: FontWeight.w700, fontSize: 17),
                       ),
                       Spacer(),
                       Text(
                         "Rs. 5000",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 19),
+                            fontWeight: FontWeight.w700, fontSize: 17),
                       ),
                     ],
                   ),
@@ -253,22 +253,20 @@ class _OffersScreenState extends State<OffersScreen> {
                 SizedBox(height: 30),
                 GestureDetector(
                   onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: AppColor.kPrimaryGreen,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Checkout",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20,
-                              color: Colors.white),
-                        ),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 50),
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: AppColor.kPrimaryGreen,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Checkout",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                            color: Colors.white),
                       ),
                     ),
                   ),

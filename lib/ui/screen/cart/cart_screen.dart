@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/cart/address_screen.dart';
-
 import '../../widget/back_button.dart';
-import '../kitchen/kitchen_order/vegetable_screen.dart';
 import 'offers_screen.dart';
 
 class CartScreen extends StatefulWidget {
@@ -42,7 +40,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
             SizedBox(height: 20),
             Container(
-              height: 60,
+              height: 50,
               width: double.infinity,
               color: Colors.white,
               child: Padding(
@@ -65,7 +63,7 @@ class _CartScreenState extends State<CartScreen> {
                                   child: Text(
                                     value,
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 18,
                                         fontWeight: FontWeight.w700,
                                         color: select == index
                                             ? Colors.black

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:urban_farmer/ui/widget/back_button.dart';
 import '../../../const/app_icon.dart';
 
-class SavedScreen extends StatefulWidget {
-  static const String routeName = 'savedScreen';
-  const SavedScreen({Key? key}) : super(key: key);
+class ShoppingScreen extends StatefulWidget {
+  static const String routeName = 'shoppingScreen';
+  const ShoppingScreen({Key? key}) : super(key: key);
 
   @override
-  State<SavedScreen> createState() => _SavedScreenState();
+  State<ShoppingScreen> createState() => _ShoppingScreenState();
 }
 
-class _SavedScreenState extends State<SavedScreen> {
+class _ShoppingScreenState extends State<ShoppingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,19 +127,10 @@ class _SavedScreenState extends State<SavedScreen> {
     return PreferredSize(
       preferredSize: const Size.fromHeight(60),
       child: Padding(
-        padding: EdgeInsets.only(left: 20, right: 15, top: 30),
+        padding: EdgeInsets.only(left: 10, right: 15, top: 30),
         child: Row(
           children: [
-            GestureDetector(
-              onTap: () {
-                //Navigator.of(context).pushNamed(HomeScreen.routeName);
-                //Navigator.pop(context);
-              },
-              child: Image.asset(
-                AppAssets.arrowImage,
-                height: 20,
-              ),
-            ),
+            CommonBackButton(),
             SizedBox(width: 30),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

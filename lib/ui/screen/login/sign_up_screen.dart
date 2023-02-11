@@ -108,37 +108,43 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                   SizedBox(height: 35),
-                  Container(
-                    height: 45,
-                    width: 270,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.4),
-                          blurRadius: 6,
-                        )
-                      ],
-                      color: AppColor.kPrimaryGreen,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Center(
-                            child: Image.asset(
-                          AppAssets.userImage,
-                          height: 18,
-                          width: 22,
-                        )),
-                        SizedBox(width: 15),
-                        Text(
-                          "Join us",
-                          style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context, rootNavigator: true)
+                          .pushNamed(SignInScreen.routeName);
+                    },
+                    child: Container(
+                      height: 45,
+                      width: 270,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.4),
+                            blurRadius: 6,
+                          )
+                        ],
+                        color: AppColor.kPrimaryGreen,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                              child: Image.asset(
+                            AppAssets.userImage,
+                            height: 18,
+                            width: 22,
+                          )),
+                          SizedBox(width: 15),
+                          Text(
+                            "Join us",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),

@@ -32,51 +32,40 @@ class _PlantersOrderScreenState extends State<PlantersOrderScreen>
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 10),
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                SizedBox(
-                  height: 50,
-                  child: TabBar(
-                    isScrollable: true,
-                    indicator: UnderlineTabIndicator(
-                        borderSide: BorderSide(
-                          width: 3,
-                          color: AppColor.kPrimaryGreen,
-                        ),
-                        insets: EdgeInsets.symmetric(horizontal: 10)),
-                    labelStyle:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    labelColor: AppColor.kPrimaryGreen,
-                    unselectedLabelColor: Colors.black38,
-                    controller: tabController,
-                    onTap: (val) {},
-                    tabs: [
-                      "Vegetable",
-                      "Fruit",
-                      "Decoratives",
-                      "Vastu",
-                    ].map((e) => Tab(text: e)).toList(),
-                  ),
-                ),
-                Positioned(
-                  bottom: -2,
-                  left: 0,
-                  right: 0,
-                  child: Divider(color: Colors.grey, height: 5, thickness: 1.0),
-                ),
-              ],
+            SizedBox(
+              height: 50,
+              child: TabBar(
+                isScrollable: true,
+                indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(
+                      width: 3,
+                      color: AppColor.kPrimaryGreen,
+                    ),
+                    insets: EdgeInsets.symmetric(horizontal: 10)),
+                labelStyle:
+                    TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelColor: AppColor.kPrimaryGreen,
+                unselectedLabelColor: Colors.black38,
+                controller: tabController,
+                onTap: (val) {},
+                tabs: [
+                  "Vegetable",
+                  "Fruit",
+                  "Decoratives",
+                  "Vastu",
+                ].map((e) => Tab(text: e)).toList(),
+              ),
             ),
+            Container(height: 3, color: Colors.black38),
             Expanded(
               child: TabBarView(
                 controller: tabController,
                 children: [
                   vegetableDetail(),
-                  SizedBox(),
-                  SizedBox(),
-                  SizedBox(),
+                  vegetableDetail(),
+                  vegetableDetail(),
+                  vegetableDetail(),
                 ],
               ),
             ),
@@ -108,8 +97,8 @@ class _PlantersOrderScreenState extends State<PlantersOrderScreen>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: 110,
-                            width: 100,
+                            height: 100,
+                            width: 90,
                             child: Image.asset(AppAssets.vegetableImage,
                                 fit: BoxFit.fill),
                           ),
@@ -123,13 +112,13 @@ class _PlantersOrderScreenState extends State<PlantersOrderScreen>
                                     "Lorem Ipsum is that",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 16),
+                                        fontSize: 15),
                                   ),
                                   SizedBox(height: 5),
                                   Text(
                                     "Color (White)",
                                     style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 13,
                                         fontWeight: FontWeight.w400),
                                   ),
                                   SizedBox(height: 20),
@@ -140,8 +129,8 @@ class _PlantersOrderScreenState extends State<PlantersOrderScreen>
                                               OrderDetailsScreen.routeName);
                                     },
                                     child: Container(
-                                      height: 35,
-                                      width: 120,
+                                      height: 30,
+                                      width: 90,
                                       decoration: BoxDecoration(
                                         color: AppColor.kPrimaryGreen,
                                         borderRadius: BorderRadius.circular(10),
@@ -150,7 +139,7 @@ class _PlantersOrderScreenState extends State<PlantersOrderScreen>
                                         child: Text(
                                           "Add",
                                           style: TextStyle(
-                                              fontSize: 18,
+                                              fontSize: 15,
                                               fontWeight: FontWeight.w700,
                                               color: Colors.white),
                                         ),

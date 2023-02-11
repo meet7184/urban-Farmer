@@ -96,8 +96,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   SizedBox(height: 50),
                   submitButton(
                     "Sign In",
-                    () =>
-                        Navigator.pushNamed(context, DashBoardScreen.routeName),
+                    () => Navigator.pushNamed(
+                        context, ForgotPasswordScreen.routeName),
                   ),
                   SizedBox(height: 60),
                   Row(

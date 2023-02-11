@@ -111,37 +111,50 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: Row(
                     children: List.generate(
                         4,
-                        (index) => Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 130,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child:
-                                            Image.asset(AppAssets.gamlaImage)),
+                        (index) => GestureDetector(
+                              onTap: () {
+                                Navigator.of(context, rootNavigator: true)
+                                    .pushNamed(ProductDetailsScreen.routeName);
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 10),
+                                color: Colors.transparent,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 130,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.asset(
+                                                AppAssets.gamlaImage)),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        "Lorem Lpsum",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 13),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Text(
+                                        "Rs. 456/-",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    "Lorem Lpsum",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 13),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    "Rs. 456/-",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 12),
-                                  )
-                                ],
+                                ),
                               ),
                             )),
                   ),
@@ -157,63 +170,74 @@ class _ProductScreenState extends State<ProductScreen> {
                       4,
                       (index) => GestureDetector(
                             onTap: () {
-                              Navigator.of(context, rootNavigator: true)
-                                  .pushNamed(ProductDetailsScreen.routeName);
+                              // Navigator.of(context, rootNavigator: true)
+                              //     .pushNamed(ProductDetailsScreen.routeName);
                             },
                             child: Padding(
-                              padding: const EdgeInsets.only(bottom: 15),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 130,
-                                    width: 100,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child:
-                                            Image.asset(AppAssets.gamlaImage)),
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 25),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Lorem Ipsum has been the industry's",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 15),
-                                          ),
-                                          SizedBox(height: 5),
-                                          Text(
-                                            "Plant",
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                          SizedBox(height: 10),
-                                          Text(
-                                            "Rs. 456/-",
-                                            style: TextStyle(fontSize: 14),
-                                          ),
-                                          Row(
-                                            children: [
-                                              Container(),
-                                              Spacer(),
-                                              Image.asset(AppAssets.bookImage,
-                                                  height: 18),
-                                            ],
-                                          )
-                                        ],
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 15),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 130,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.asset(
+                                                AppAssets.gamlaImage)),
                                       ),
-                                    ),
-                                  )
-                                ],
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 25),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "Lorem Ipsum has been the industry's",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w700,
+                                                    fontSize: 15),
+                                              ),
+                                              SizedBox(height: 5),
+                                              Text(
+                                                "Plant",
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                              SizedBox(height: 10),
+                                              Text(
+                                                "Rs. 456/-",
+                                                style: TextStyle(fontSize: 14),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Container(),
+                                                  Spacer(),
+                                                  Image.asset(
+                                                      AppAssets.bookImage,
+                                                      height: 18),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           )),

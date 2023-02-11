@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  List<HomeServices> list = [
+  List<HomeServices> servicesList = [
     const HomeServices(
         AppAssets.kitchenImage, "Kitchen Garden", Color(0xffB8DBDB)),
     const HomeServices(
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 110,
                             width: 110,
                             decoration: BoxDecoration(
-                              color: list[index].color,
+                              color: servicesList[index].color,
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Padding(
@@ -113,10 +113,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Center(
-                                      child: Image.asset(list[index].image,
+                                      child: Image.asset(
+                                          servicesList[index].image,
                                           height: 60)),
                                   Text(
-                                    list[index].text,
+                                    servicesList[index].text,
                                     maxLines: 2,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(

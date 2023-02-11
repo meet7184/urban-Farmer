@@ -3,6 +3,7 @@ import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/ui/widget/back_button.dart';
 
 import '../../../../const/app_color.dart';
+import '../../kitchen/gardeners_visit_screen.dart';
 
 class CorporateDetailsScreen extends StatelessWidget {
   static const String routeName = '/corporateDetailsScreen';
@@ -19,7 +20,7 @@ class CorporateDetailsScreen extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    height: 360,
+                    height: 330,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -53,19 +54,19 @@ class CorporateDetailsScreen extends StatelessWidget {
                         Text(
                           "Lorem Ipsum is that it ",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 18,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Spacer(),
-                        Image.asset(AppAssets.bookImage, height: 27),
+                        Image.asset(AppAssets.bookImage, height: 18),
                       ],
                     ),
                     SizedBox(height: 15),
                     Text(
                       "Lorem Ipsum is that it has a more",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -75,7 +76,7 @@ class CorporateDetailsScreen extends StatelessWidget {
                         Text(
                           "Rs. 2400",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 20,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -83,7 +84,7 @@ class CorporateDetailsScreen extends StatelessWidget {
                         Text(
                           "Person: 2",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 20,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -94,7 +95,7 @@ class CorporateDetailsScreen extends StatelessWidget {
                     Text(
                       "About",
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -102,16 +103,20 @@ class CorporateDetailsScreen extends StatelessWidget {
                     Text(
                       "Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using",
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 16,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(height: 20),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context, rootNavigator: true)
+                            .pushNamed(GardenersVisitScreen.routeName);
+                      },
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 60),
-                        height: 50,
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+                        height: 40,
                         decoration: BoxDecoration(
                           color: AppColor.kPrimaryGreen,
                           borderRadius: BorderRadius.circular(10),
@@ -127,10 +132,9 @@ class CorporateDetailsScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

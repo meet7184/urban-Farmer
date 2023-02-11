@@ -27,7 +27,7 @@ class _VegetableScreenState extends State<VegetableScreen> {
                 mainAxisSpacing: 10,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: 10,
+                itemCount: 8,
                 itemBuilder: (context, index) {
                   return Container(
                     decoration: BoxDecoration(
@@ -39,7 +39,7 @@ class _VegetableScreenState extends State<VegetableScreen> {
                         Stack(
                           children: [
                             Container(
-                              height: 160,
+                              height: 150,
                               width: double.infinity,
                               child: Image.asset(AppAssets.vegetableImage,
                                   fit: BoxFit.fill),
@@ -49,7 +49,7 @@ class _VegetableScreenState extends State<VegetableScreen> {
                               top: 10,
                               child: Image.asset(
                                 AppAssets.bookImage,
-                                height: 20,
+                                height: 17,
                                 color: Colors.white,
                               ),
                             ),
@@ -64,19 +64,19 @@ class _VegetableScreenState extends State<VegetableScreen> {
                               Text(
                                 "Lorem Ipsum",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600),
+                                    fontSize: 15, fontWeight: FontWeight.w600),
                               ),
                               Text(
                                 "Lorem Ipsum has a verified",
                                 style: TextStyle(
-                                    fontSize: 14, fontWeight: FontWeight.w500),
+                                    fontSize: 13, fontWeight: FontWeight.w500),
                               ),
                               Row(
                                 children: [
                                   Text(
                                     "Rs. 540",
                                     style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.w600),
                                   ),
                                   Spacer(),
@@ -89,20 +89,20 @@ class _VegetableScreenState extends State<VegetableScreen> {
                                       }
                                     },
                                     child: Container(
-                                      height: 20,
-                                      width: 20,
+                                      height: 18,
+                                      width: 18,
                                       decoration: BoxDecoration(
                                         border: Border.all(color: Colors.black),
                                         shape: BoxShape.circle,
                                       ),
-                                      child: Icon(Icons.remove, size: 16),
+                                      child: Icon(Icons.remove, size: 15),
                                     ),
                                   ),
                                   SizedBox(width: 10),
                                   Text(
                                     quantityIndex.toString(),
                                     style: const TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                         fontWeight: FontWeight.w500),
                                   ),
                                   SizedBox(width: 10),
@@ -112,13 +112,13 @@ class _VegetableScreenState extends State<VegetableScreen> {
                                       setState(() {});
                                     },
                                     child: Container(
-                                      height: 20,
-                                      width: 20,
+                                      height: 18,
+                                      width: 18,
                                       decoration: BoxDecoration(
                                         border: Border.all(color: Colors.black),
                                         shape: BoxShape.circle,
                                       ),
-                                      child: Icon(Icons.add, size: 16),
+                                      child: Icon(Icons.add, size: 15),
                                     ),
                                   ),
                                 ],

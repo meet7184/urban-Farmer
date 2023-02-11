@@ -14,7 +14,10 @@ import 'package:urban_farmer/ui/screen/setting/order_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/setting_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
+import 'package:urban_farmer/ui/widget/shopping_screen.dart';
 import '../ui/screen/kitchen/gardeners_visit_screen.dart';
+import '../ui/screen/login/sign_in_verification.dart';
+import '../ui/screen/login/sign_up_verification.dart';
 import '../ui/screen/services/corporate_gifts/corporate_details_screen.dart';
 import '../ui/screen/services/corporate_gifts/corporate_gifts_screen.dart';
 import '../ui/screen/services/green_gift/green_details_screen.dart';
@@ -213,6 +216,21 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const GreenDetailsScreen(),
+        );
+      case ShoppingScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ShoppingScreen(),
+        );
+      case SignUpVerificationScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const SignUpVerificationScreen(),
+        );
+      case SignInVerificationScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const SignInVerificationScreen(),
         );
       default:
         debugPrint('Navigating to ${settings.name}');

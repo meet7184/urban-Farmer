@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/app_bar.dart';
-import '../../widget/back_button.dart';
 
 class OnlineGardeningScreen extends StatelessWidget {
   static const String routeName = '/onlineGardeningScreen';
@@ -22,7 +21,7 @@ class OnlineGardeningScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 const Text(
                   "Find your \nfavorite  plants",
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 30),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                 ),
                 const SizedBox(height: 45),
                 Stack(
@@ -44,13 +43,13 @@ class OnlineGardeningScreen extends StatelessWidget {
                             Text(
                               "30% OFF",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w800, fontSize: 29),
+                                  fontWeight: FontWeight.w800, fontSize: 26),
                             ),
                             SizedBox(height: 15),
                             Text(
                               "02 - 10 Dec",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400, fontSize: 24),
+                                  fontWeight: FontWeight.w400, fontSize: 22),
                             ),
                           ],
                         ),
@@ -67,7 +66,7 @@ class OnlineGardeningScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 const Text(
                   "Subscriptions",
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 27),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 23),
                 ),
                 const SizedBox(height: 20),
                 SingleChildScrollView(
@@ -78,8 +77,8 @@ class OnlineGardeningScreen extends StatelessWidget {
                     children: List.generate(
                       4,
                       (index) => Container(
+                        width: 150,
                         margin: const EdgeInsets.only(right: 20),
-                        width: 190,
                         decoration: BoxDecoration(
                           color: const Color(0xffC1D6FA),
                           borderRadius: BorderRadius.circular(20),
@@ -87,11 +86,16 @@ class OnlineGardeningScreen extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               const SizedBox(height: 10),
-                              Image.asset(AppAssets.bookImage, height: 21),
                               Row(
+                                children: [
+                                  Spacer(),
+                                  Image.asset(AppAssets.bookImage, height: 17),
+                                ],
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   RotatedBox(
                                     quarterTurns: 3,
@@ -99,57 +103,56 @@ class OnlineGardeningScreen extends StatelessWidget {
                                       text: const TextSpan(
                                         text: 'Monthly',
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 19,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16,
                                             color: Colors.black),
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(width: 20),
+                                  SizedBox(width: 10),
                                   Center(
                                     child: Image.asset(AppAssets.galinaImage,
-                                        height: 120),
+                                        height: 110),
                                   ),
                                 ],
                               ),
                               const SizedBox(height: 10),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: const [
+                                  const SizedBox(width: 10),
                                   Text(
                                     "Rs.",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 17),
+                                        fontSize: 15),
                                   ),
                                   SizedBox(width: 10),
                                   Text(
                                     "2999",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 27),
+                                        fontSize: 24),
                                   ),
                                 ],
                               ),
                               const SizedBox(height: 10),
                               GestureDetector(
                                 onTap: () {},
-                                child: Center(
-                                  child: Container(
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 15),
-                                    height: 38,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Add to cart",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 17),
-                                      ),
+                                child: Container(
+                                  // margin: const EdgeInsets.symmetric(
+                                  //     horizontal: 15),
+                                  height: 38,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "Add to cart",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 14),
                                     ),
                                   ),
                                 ),

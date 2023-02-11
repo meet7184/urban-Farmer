@@ -14,7 +14,7 @@ class CommonBackButton extends StatelessWidget {
       },
       icon: Image.asset(
         AppAssets.arrowImage,
-        height: 20,
+        height: 18,
       ),
     );
   }
@@ -24,8 +24,8 @@ Widget submitButton(String text, void Function()? onTap) {
   return GestureDetector(
     onTap: onTap,
     child: Container(
-      height: 45,
-      width: 270,
+      height: 40,
+      width: 260,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

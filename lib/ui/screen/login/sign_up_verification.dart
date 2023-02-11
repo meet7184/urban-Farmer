@@ -3,22 +3,25 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/core/bindings/dispose_keyboard.dart';
+import 'package:urban_farmer/ui/screen/dashboad/dashboard_screen.dart';
 import 'package:urban_farmer/ui/screen/forgot/reset_password_screen.dart';
+import 'package:urban_farmer/ui/screen/login/sign_in_screen.dart';
+import 'package:urban_farmer/ui/widget/otp_text_field.dart';
 import '../../../const/app_color.dart';
 import '../../widget/back_button.dart';
-import '../../widget/otp_text_field.dart';
 import '../login/sign_up_screen.dart';
 
-class OtpVerificationScreen extends StatefulWidget {
-  static const String routeName = '/otpVerificationScreen';
-  const OtpVerificationScreen({Key? key}) : super(key: key);
+class SignUpVerificationScreen extends StatefulWidget {
+  static const String routeName = '/signUpVerificationScreen';
+  const SignUpVerificationScreen({Key? key}) : super(key: key);
 
   @override
-  State<OtpVerificationScreen> createState() => _OtpVerificationScreenState();
+  State<SignUpVerificationScreen> createState() =>
+      _SignUpVerificationScreenState();
 }
 
-class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
-  TextEditingController otpController = TextEditingController();
+class _SignUpVerificationScreenState extends State<SignUpVerificationScreen> {
+  TextEditingController signUpVerificationController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -58,12 +61,12 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                         ),
                       ),
                       SizedBox(height: 40),
-                      OtpTextField(controller: otpController),
+                      OtpTextField(controller: signUpVerificationController),
                       const SizedBox(height: 40),
                       submitButton(
                         "Submit",
                         () => Navigator.of(context, rootNavigator: true)
-                            .pushNamed(ResetPasswordScreen.routeName),
+                            .pushNamed(SignInScreen.routeName),
                       ),
                       SizedBox(height: 10),
                       Text(
