@@ -132,7 +132,7 @@ class _SavedScreenState extends State<SavedScreen> {
             GestureDetector(
               onTap: () {
                 //Navigator.of(context).pushNamed(HomeScreen.routeName);
-                //Navigator.pop(context);
+                // Navigator.pop(context);
               },
               child: Image.asset(
                 AppAssets.arrowImage,

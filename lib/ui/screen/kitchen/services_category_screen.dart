@@ -79,9 +79,9 @@ class _ServicesCategoryScreenState extends State<ServicesCategoryScreen> {
                                 ),
                               ),
                               icon: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Icon(Icons.arrow_drop_down,
-                                    color: Colors.white),
+                                padding: const EdgeInsets.only(right: 10),
+                                child: Icon(Icons.keyboard_arrow_down_outlined,
+                                    color: Colors.black),
                               ),
                               items: dropdownList
                                   .map(

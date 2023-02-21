@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urban_farmer/ui/screen/cart/cart_screen.dart';
 
 import '../../../../const/app_color.dart';
 import '../../../../const/app_icon.dart';
@@ -13,10 +14,8 @@ class GreenDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: backAndShoppingIconAppbar(),
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: SafeArea(
-            child: Column(
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 30),
@@ -156,39 +155,48 @@ class GreenDetailsScreen extends StatelessWidget {
                         fontSize: 17,
                         color: Colors.black38),
                   ),
-                  SizedBox(height: 30),
-                  Row(
-                    children: [
-                      Text(
-                        "Rs.899",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w700, fontSize: 22),
-                      ),
-                      SizedBox(width: 50),
-                      Expanded(
-                        child: Container(
-                          height: 40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppColor.kPrimaryGreen,
-                          ),
-                          child: Center(
-                              child: Text(
-                            "Buy Now",
-                            style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white),
-                          )),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  Text(
+                    "Rs.899",
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 22),
+                  ),
+                  SizedBox(width: 50),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context, rootNavigator: true)
+                            .pushNamed(CartScreen.routeName);
+                      },
+                      child: Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColor.kPrimaryGreen,
+                        ),
+                        child: Center(
+                            child: Text(
+                          "Buy Now",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white),
+                        )),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
           ],
-        )),
+        ),
       ),
     );
   }
