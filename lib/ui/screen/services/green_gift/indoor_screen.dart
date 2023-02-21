@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../../const/app_icon.dart';
+import '../../cart/cart_screen.dart';
 import 'green_details_screen.dart';
 
 class IndoorScreen extends StatelessWidget {
@@ -44,30 +45,44 @@ class IndoorScreen extends StatelessWidget {
                               height: 130),
                         ),
                         Positioned(
-                            left: 0,
-                            right: 0,
-                            bottom: 40,
-                            child: Center(
-                                child: Text(
+                          left: 0,
+                          right: 0,
+                          bottom: 40,
+                          child: Center(
+                            child: Text(
                               "Cactus",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600, fontSize: 18),
-                            ))),
+                            ),
+                          ),
+                        ),
                         Positioned(
                           left: 0,
                           right: 0,
                           bottom: -25,
                           child: Center(
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: Icon(Icons.shopping_bag_outlined,
-                                    color: Colors.white),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context, rootNavigator: true)
+                                    .pushNamed(CartScreen.routeName);
+                              },
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: IconButton(
+                                  onPressed: () {
+                                    Navigator.of(context, rootNavigator: true)
+                                        .pushNamed(CartScreen.routeName);
+                                  },
+                                  icon: Center(
+                                    child: Icon(Icons.shopping_bag_outlined,
+                                        color: Colors.white),
+                                  ),
+                                ),
                               ),
                             ),
                           ),

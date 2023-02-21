@@ -17,6 +17,7 @@ class GardenersVisitScreen extends StatefulWidget {
 class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
   TextEditingController intialdateval = TextEditingController();
   TextEditingController timeCtl = TextEditingController();
@@ -73,7 +74,7 @@ class _GardenersVisitScreenState extends State<GardenersVisitScreen> {
                   SizedBox(height: 30),
                   getTitle("Mobile Number"),
                   SizedBox(height: 10),
-                  MobileNumberField(),
+                  MobileNumberField(controller: phoneNumberController),
                   SizedBox(height: 10),
                   getTitle("Address"),
                   SizedBox(height: 10),

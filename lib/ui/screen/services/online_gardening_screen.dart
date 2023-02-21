@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/app_bar.dart';
+import '../cart/cart_screen.dart';
 
-class OnlineGardeningScreen extends StatelessWidget {
+class OnlineGardeningScreen extends StatefulWidget {
   static const String routeName = '/onlineGardeningScreen';
   const OnlineGardeningScreen({Key? key}) : super(key: key);
 
+  @override
+  State<OnlineGardeningScreen> createState() => _OnlineGardeningScreenState();
+}
+
+class _OnlineGardeningScreenState extends State<OnlineGardeningScreen> {
+  bool bookMark = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +98,22 @@ class OnlineGardeningScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   Spacer(),
-                                  Image.asset(AppAssets.bookImage, height: 17),
+                                  GestureDetector(
+                                      onTap: () {
+                                        bookMark = !bookMark;
+                                        setState(() {});
+                                      },
+                                      child: bookMark
+                                          ? Icon(
+                                              Icons.bookmark_border,
+                                              size: 22,
+                                              color: Colors.black45,
+                                            )
+                                          : Icon(
+                                              Icons.bookmark,
+                                              size: 22,
+                                              color: Colors.black,
+                                            )),
                                 ],
                               ),
                               Row(
@@ -137,7 +159,10 @@ class OnlineGardeningScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 10),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pushNamed(CartScreen.routeName);
+                                },
                                 child: Container(
                                   // margin: const EdgeInsets.symmetric(
                                   //     horizontal: 15),

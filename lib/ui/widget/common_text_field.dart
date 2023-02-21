@@ -13,6 +13,15 @@ enum TextFieldType {
   confirmPassword,
   firstName,
   address,
+  firstNameEdit,
+  lastNameEdit,
+  phoneNumberEdit,
+  emailEdit,
+  addressEdit,
+  city,
+  addressField,
+  state,
+  zipcode,
 }
 
 class CustomTextField extends StatelessWidget {
@@ -20,12 +29,16 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? textEditingController;
   final Widget? clearTextWidget;
   final String? Function(String?)? validator;
+  final bool obscureText;
+  final Widget? suffixIcon;
   const CustomTextField({
     Key? key,
     this.validator,
     this.textEditingController,
     required this.textFieldType,
     this.clearTextWidget,
+    this.obscureText = false,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -39,11 +52,20 @@ class CustomTextField extends StatelessWidget {
       textInputAction: textInputAction,
       keyboardType: textInputType,
       maxLength: maxLength,
+      obscureText: obscureText,
       maxLines: maxLines,
       controller: textEditingController,
       validator:
           validator ?? (val) => val!.trim().isEmpty ? "field required" : null,
       decoration: InputDecoration(
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(7),
+          borderSide: BorderSide(color: Colors.black38),
+        ),
+        focusedErrorBorder: new OutlineInputBorder(
+          borderRadius: BorderRadius.circular(7),
+          borderSide: BorderSide(color: Colors.black38),
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(7),
           borderSide: BorderSide(color: Colors.black38),
@@ -56,7 +78,7 @@ class CustomTextField extends StatelessWidget {
         filled: true,
         contentPadding: const EdgeInsets.all(17),
         prefixIcon: prefix,
-        suffixIcon: suffix,
+        suffixIcon: suffixIcon,
         hintText: hintText,
       ),
     );
@@ -67,13 +89,16 @@ class CustomTextField extends StatelessWidget {
       case TextFieldType.address:
         return 5;
     }
-    return null;
+    return 1;
   }
 
   int? get maxLength {
     switch (textFieldType) {
       case TextFieldType.phoneNumber:
+      case TextFieldType.phoneNumberEdit:
         return 10;
+      case TextFieldType.zipcode:
+        return 5;
     }
     return null;
   }
@@ -81,6 +106,8 @@ class CustomTextField extends StatelessWidget {
   TextInputType? get textInputType {
     switch (textFieldType) {
       case TextFieldType.phoneNumber:
+      case TextFieldType.phoneNumberEdit:
+      case TextFieldType.zipcode:
         return TextInputType.number;
     }
     return null;
@@ -96,6 +123,14 @@ class CustomTextField extends StatelessWidget {
       case TextFieldType.newPassword:
       case TextFieldType.confirmPassword:
       case TextFieldType.firstName:
+      case TextFieldType.firstNameEdit:
+      case TextFieldType.lastNameEdit:
+      case TextFieldType.emailEdit:
+      case TextFieldType.addressEdit:
+      case TextFieldType.phoneNumberEdit:
+      case TextFieldType.city:
+      case TextFieldType.state:
+      case TextFieldType.zipcode:
         return TextInputAction.next;
       default:
         return null;
@@ -114,22 +149,22 @@ class CustomTextField extends StatelessWidget {
     }
   }
 
-  Widget? get suffix {
-    switch (textFieldType) {
-      case TextFieldType.phoneNumber:
-      case TextFieldType.emailId:
-      case TextFieldType.emailPassword:
-      case TextFieldType.newPassword:
-      case TextFieldType.confirmPassword:
-        return Icon(
-          Icons.visibility_outlined,
-          color: AppColor.kTextColor,
-          size: 21,
-        );
-      default:
-        return null;
-    }
-  }
+  // Widget? get suffix {
+  //   switch (textFieldType) {
+  //     case TextFieldType.phoneNumber:
+  //     case TextFieldType.emailId:
+  //     case TextFieldType.emailPassword:
+  //     case TextFieldType.newPassword:
+  //     case TextFieldType.confirmPassword:
+  //       return Icon(
+  //         Icons.visibility_outlined,
+  //         color: AppColor.kTextColor,
+  //         size: 21,
+  //       );
+  //     default:
+  //       return null;
+  //   }
+  // }
 
   String? get hintText {
     switch (textFieldType) {
@@ -149,6 +184,22 @@ class CustomTextField extends StatelessWidget {
         return "Confirm Password";
       case TextFieldType.firstName:
         return "First Name";
+      case TextFieldType.firstNameEdit:
+        return "First Name";
+      case TextFieldType.lastNameEdit:
+        return "Last Name";
+      case TextFieldType.phoneNumberEdit:
+        return "Phone Number";
+      case TextFieldType.emailEdit:
+        return "Email Id";
+      case TextFieldType.addressEdit:
+        return "Address";
+      case TextFieldType.city:
+        return "City";
+      case TextFieldType.state:
+        return "State";
+      case TextFieldType.zipcode:
+        return "Zip Code";
       default:
         return null;
     }

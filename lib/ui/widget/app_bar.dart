@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:urban_farmer/ui/widget/shopping_screen.dart';
-
+import 'package:urban_farmer/ui/screen/cart/cart_screen.dart';
 import '../../const/app_icon.dart';
 import '../screen/profile/profile_screen.dart';
-import '../screen/saved/saved_screen.dart';
 import 'back_button.dart';
 
 class UserProfile extends StatefulWidget {
@@ -91,7 +89,7 @@ PreferredSizeWidget backAndTextAndIconAppBar(String text) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(50),
     child: Padding(
-      padding: EdgeInsets.only(right: 15, top: 30),
+      padding: EdgeInsets.only(right: 10, top: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -132,7 +130,7 @@ class IconsShopping extends StatelessWidget {
     return IconButton(
         onPressed: () {
           Navigator.of(context, rootNavigator: true)
-              .pushNamed(ShoppingScreen.routeName);
+              .pushNamed(CartScreen.routeName);
         },
         icon: Icon(Icons.shopping_bag_outlined, size: 26));
   }

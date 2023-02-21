@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:urban_farmer/const/app_color.dart';
 
 import '../../../../const/app_icon.dart';
 
@@ -12,6 +13,7 @@ class VegetableScreen extends StatefulWidget {
 
 class _VegetableScreenState extends State<VegetableScreen> {
   int quantityIndex = 0;
+  bool bookMark = true;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -45,13 +47,29 @@ class _VegetableScreenState extends State<VegetableScreen> {
                                   fit: BoxFit.fill),
                             ),
                             Positioned(
-                              right: 10,
-                              top: 10,
-                              child: Image.asset(
-                                AppAssets.bookImage,
-                                height: 17,
-                                color: Colors.white,
-                              ),
+                              right: 0,
+                              child: IconButton(
+                                  onPressed: () {
+                                    bookMark = !bookMark;
+                                    setState(() {
+                                      if (bookMark) {
+                                        print("true");
+                                      } else {
+                                        print("false");
+                                      }
+                                    });
+                                  },
+                                  icon: bookMark
+                                      ? Icon(
+                                          Icons.bookmark_border,
+                                          size: 20,
+                                          color: Colors.white,
+                                        )
+                                      : Icon(
+                                          Icons.bookmark,
+                                          size: 20,
+                                          color: AppColor.kPrimaryGreen,
+                                        )),
                             ),
                           ],
                         ),

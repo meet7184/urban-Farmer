@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urban_farmer/ui/screen/cart/cart_screen.dart';
 import 'package:urban_farmer/ui/screen/kitchen/planters/planters_order_screen.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/back_button.dart';
@@ -46,7 +47,7 @@ class _KitchenDetailedPreviewScreenState
                         IconButton(
                             onPressed: () {
                               Navigator.of(context, rootNavigator: true)
-                                  .pushNamed(ShoppingScreen.routeName);
+                                  .pushNamed(CartScreen.routeName);
                             },
                             icon: Icon(Icons.shopping_bag_outlined, size: 26)),
                       ],

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/ui/screen/dashboad/dashboard_screen.dart';
 import 'package:urban_farmer/ui/screen/forgot/forgot_screen.dart';
-import 'package:urban_farmer/ui/screen/forgot/otp_verification_screen.dart';
+import 'package:urban_farmer/ui/screen/forgot/forgot_otp_verification_screen.dart';
 import 'package:urban_farmer/ui/screen/forgot/reset_password_screen.dart';
 import 'package:urban_farmer/ui/screen/home/home_screen.dart';
+import 'package:urban_farmer/ui/screen/home/product_categories/sub_categories_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_details_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_screen.dart';
 import 'package:urban_farmer/ui/screen/login/sign_in_screen.dart';
@@ -15,9 +16,13 @@ import 'package:urban_farmer/ui/screen/setting/setting_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 import 'package:urban_farmer/ui/widget/shopping_screen.dart';
+import '../ui/screen/home/product_categories/filter_screen.dart';
+import '../ui/screen/home/product_categories/view_all_screen.dart';
+import '../ui/screen/home/product_categories/proucts_list_view_all_screen.dart';
 import '../ui/screen/kitchen/gardeners_visit_screen.dart';
 import '../ui/screen/login/sign_in_verification.dart';
 import '../ui/screen/login/sign_up_verification.dart';
+import '../ui/screen/profile/profile_edit_screen.dart';
 import '../ui/screen/services/corporate_gifts/corporate_details_screen.dart';
 import '../ui/screen/services/corporate_gifts/corporate_gifts_screen.dart';
 import '../ui/screen/services/green_gift/green_details_screen.dart';
@@ -37,6 +42,7 @@ import '../ui/screen/kitchen/kitchen_order/kitchen_orde_screen.dart';
 import '../ui/screen/services/online_gardening_screen.dart';
 import '../ui/screen/kitchen/services_category_screen.dart';
 import '../ui/screen/services/services_listpage_screen.dart';
+import '../ui/screen/setting/my_coupons_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -61,10 +67,10 @@ class RouteGenerator {
           settings: settings,
           builder: (_) => const ForgotPasswordScreen(),
         );
-      case OtpVerificationScreen.routeName:
+      case ForgotOtpVerificationScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const OtpVerificationScreen(),
+          builder: (_) => const ForgotOtpVerificationScreen(),
         );
       case ResetPasswordScreen.routeName:
         return MaterialPageRoute(
@@ -231,6 +237,36 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const SignInVerificationScreen(),
+        );
+      case ViewAllScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ViewAllScreen(),
+        );
+      case ProfileEditScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProfileEditScreen(),
+        );
+      case MyCouponsScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const MyCouponsScreen(),
+        );
+      case ProductsListViewAllScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const ProductsListViewAllScreen(),
+        );
+      case SubCategoriesScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const SubCategoriesScreen(),
+        );
+      case FilterScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const FilterScreen(),
         );
       default:
         debugPrint('Navigating to ${settings.name}');

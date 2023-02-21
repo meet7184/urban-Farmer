@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urban_farmer/ui/screen/profile/t&c_screen.dart';
 import '../../../const/app_icon.dart';
 import '../../widget/app_bar.dart';
 
@@ -144,11 +145,19 @@ class SubscriptionScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 40),
-                    Center(
-                      child: Text(
-                        "T&C Apply",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 14),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context, rootNavigator: true)
+                            .pushNamed(TcScreen.routeName);
+                      },
+                      child: Center(
+                        child: Text(
+                          "T&C Apply",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 14,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
                     SizedBox(height: 20),
