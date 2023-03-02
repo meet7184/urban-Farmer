@@ -7,6 +7,7 @@ import 'package:urban_farmer/ui/screen/home/home_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_categories/sub_categories_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_details_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_screen.dart';
+import 'package:urban_farmer/ui/screen/home/top_products_screen.dart';
 import 'package:urban_farmer/ui/screen/login/sign_in_screen.dart';
 import 'package:urban_farmer/ui/screen/notification/notification_screen.dart';
 import 'package:urban_farmer/ui/screen/profile/profile_screen.dart';
@@ -16,6 +17,9 @@ import 'package:urban_farmer/ui/screen/setting/setting_screen.dart';
 import 'package:urban_farmer/ui/screen/setting/subscription_screen.dart';
 import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 import 'package:urban_farmer/ui/widget/shopping_screen.dart';
+import '../ui/screen/cart/add_address_screen.dart';
+import '../ui/screen/cart/address_screen.dart';
+import '../ui/screen/cart/order_list_screen.dart';
 import '../ui/screen/home/product_categories/filter_screen.dart';
 import '../ui/screen/home/product_categories/view_all_screen.dart';
 import '../ui/screen/home/product_categories/proucts_list_view_all_screen.dart';
@@ -223,10 +227,10 @@ class RouteGenerator {
           settings: settings,
           builder: (_) => const GreenDetailsScreen(),
         );
-      case ShoppingScreen.routeName:
+      case FavoriteLitScreen.routeName:
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => const ShoppingScreen(),
+          builder: (_) => const FavoriteLitScreen(),
         );
       case SignUpVerificationScreen.routeName:
         return MaterialPageRoute(
@@ -267,6 +271,26 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) => const FilterScreen(),
+        );
+      case OrderListScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const OrderListScreen(),
+        );
+      case AddAddressScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const AddAddressScreen(),
+        );
+      case AddressScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const AddressScreen(),
+        );
+      case TopProductsScreen.routeName:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const TopProductsScreen(),
         );
       default:
         debugPrint('Navigating to ${settings.name}');

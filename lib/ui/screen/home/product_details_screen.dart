@@ -302,6 +302,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               response.when(
                                 success: (data) {
                                   showToast("Product Successfully  add");
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pushNamed(CartScreen.routeName);
                                 },
                                 failure: (ErrorType type, String? message) {
                                   showToast(getMessageFromErrorType(type));

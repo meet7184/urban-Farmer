@@ -19,12 +19,6 @@ class ViewAllScreen extends StatefulWidget {
 
 class _ViewAllScreenState extends State<ViewAllScreen> {
   @override
-  void dispose() {
-    Get.delete<CategoriesController>();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: textAndBackAndUserAppBar("Categories"),

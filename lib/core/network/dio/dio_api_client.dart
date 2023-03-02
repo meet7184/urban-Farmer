@@ -1,13 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:urban_farmer/core/network/dio/dio_extension.dart';
+import 'package:urban_farmer/ui/screen/cart/model/address_list_model.dart';
 import 'package:urban_farmer/ui/screen/cart/model/cart_model.dart';
+import 'package:urban_farmer/ui/screen/cart/model/order_history_model.dart';
 import 'package:urban_farmer/ui/screen/home/model/banner_model.dart';
 import 'package:urban_farmer/ui/screen/home/model/categories_model.dart';
 import 'package:urban_farmer/ui/screen/home/model/products_details_model.dart';
 import 'package:urban_farmer/ui/screen/home/model/services_model.dart';
 import 'package:urban_farmer/ui/screen/home/model/sub_category_model.dart';
 import 'package:urban_farmer/ui/screen/home/model/trending_products_model.dart';
+import 'package:urban_farmer/ui/screen/saved/model/favorite_list_model.dart';
+import '../../../ui/screen/cart/model/count_model.dart';
 import '../../../ui/screen/login/user_model/user_model.dart';
 import '../../utils/base_url.dart';
 import '../api_client.dart';
@@ -227,6 +231,150 @@ class DioApiClient extends ApiClient {
     return List<CartModelList>.from(
       response.data.map(
         (e) => CartModelList.fromJson(e),
+      ),
+    );
+  }
+
+  @override
+  Future<void> updateQuantityCart(
+      String quantity, String userId, String productId) async {
+    final param = {
+      "action": quantity,
+      "user_id": userId,
+      "product_id": productId,
+    };
+    await _dioClient.postMultipartApi(UrlPath.updateProQtyApi,
+        formData: FormData.fromMap(param));
+  }
+
+  @override
+  Future<List<OrderHistoryList>> orderHistory(String userId) async {
+    final param = {
+      "user_id": userId,
+    };
+    final response = await _dioClient.postMultipartApi(UrlPath.orderHistoryApi,
+        formData: FormData.fromMap(param));
+    return List<OrderHistoryList>.from(
+      response.data.map(
+        (e) => OrderHistoryList.fromJson(e),
+      ),
+    );
+  }
+
+  @override
+  Future<void> orderPlace(
+      String userId,
+      String name,
+      String mobileNumber,
+      String email,
+      String address,
+      String city,
+      String state,
+      String zipCode) async {
+    final param = {
+      "user_id": userId,
+      "name": name,
+      "phone": mobileNumber,
+      "email": email,
+      "address": address,
+      "city": city,
+      "state": state,
+      "pincode": zipCode,
+    };
+    await _dioClient.postMultipartApi(UrlPath.placeOrderApi,
+        formData: FormData.fromMap(param));
+  }
+
+  @override
+  Future<OrderCountModel> cartOrderCount(String userId) async {
+    final param = {
+      "user_id": userId,
+    };
+    final response = await _dioClient.postMultipartApi(
+        UrlPath.orderCountCartApi,
+        formData: FormData.fromMap(param));
+    return OrderCountModel.fromJson(response.data);
+  }
+
+  @override
+  Future<void> addAddress(
+      String userId,
+      String name,
+      String mobileNumber,
+      String email,
+      String address,
+      String city,
+      String state,
+      String zipCode) async {
+    final param = {
+      "user_id": userId,
+      "name": name,
+      "phone": mobileNumber,
+      "email": email,
+      "address": address,
+      "city": city,
+      "state": state,
+      "pincode": zipCode,
+    };
+    await _dioClient.postMultipartApi(UrlPath.addAddressApi,
+        formData: FormData.fromMap(param));
+  }
+
+  @override
+  Future<List<AddressListData>> addressList(String userId) async {
+    final param = {
+      "user_id": userId,
+    };
+    final response = await _dioClient.postMultipartApi(UrlPath.addressListApi,
+        formData: FormData.fromMap(param));
+    return List<AddressListData>.from(
+      response.data.map(
+        (e) => AddressListData.fromJson(e),
+      ),
+    );
+  }
+
+  @override
+  Future<void> cartProductRemove(String userId, String productId) async {
+    final param = {
+      "user_id": userId,
+      "product_id": productId,
+    };
+    await _dioClient.postMultipartApi(UrlPath.cartProductRemoveApi,
+        formData: FormData.fromMap(param));
+  }
+
+  @override
+  Future<void> favorite(String userId, String productId) async {
+    final param = {
+      "user_id": userId,
+      "product_id": productId,
+    };
+    await _dioClient.postMultipartApi(UrlPath.favoriteApi,
+        formData: FormData.fromMap(param));
+  }
+
+  @override
+  Future<void> favoriteRemove(String userId, String productId) async {
+    final param = {
+      "user_id": userId,
+      "product_id": productId,
+    };
+    await _dioClient.postMultipartApi(UrlPath.favoriteRemoveApi,
+        formData: FormData.fromMap(param));
+  }
+
+  @override
+  Future<List<WishFavoriteDataModel>> favoriteList(String userId) async {
+    final param = {
+      "user_id": userId,
+    };
+    final response = await _dioClient.postMultipartApi(
+        UrlPath.wishFavoriteListApi,
+        formData: FormData.fromMap(param));
+    return List<WishFavoriteDataModel>.from(
+      response.data.map(
+        (e) => WishFavoriteDataModel.fromJson(e),
       ),
     );
   }

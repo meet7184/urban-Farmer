@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:urban_farmer/ui/screen/home/controller/products_controller.dart';
+import 'package:urban_farmer/ui/screen/home/product_categories/sub_categories_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_categories/view_all_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_details_screen.dart';
 import 'package:urban_farmer/ui/widget/app_bar.dart';
 import '../../../const/app_color.dart';
 import '../../../const/app_icon.dart';
+import '../../../core/network/utils/base_response.dart';
+import '../../../core/utils/flitter_toast.dart';
+import '../../../core/utils/global.dart';
 import 'controller/categories_controller.dart';
 
 // class ProductArgs {
@@ -69,36 +73,49 @@ class _ProductScreenState extends State<ProductScreen> {
                       clipBehavior: Clip.none,
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: List.generate(
-                            controller.categoriesList.length,
-                            (index) => Padding(
-                                  padding: const EdgeInsets.only(right: 6),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 100,
-                                        width: 100,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(16),
-                                        ),
-                                        child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            child: Image.asset(
-                                                AppAssets.plantImage)),
+                        children: controller.categoriesList
+                            .asMap()
+                            .map((index, value) => MapEntry(
+                                  index,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context, rootNavigator: true)
+                                          .pushNamed(
+                                              SubCategoriesScreen.routeName,
+                                              arguments: value.categoriesId);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 6),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: 100,
+                                            width: 100,
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
+                                            child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                child: Image.asset(
+                                                    AppAssets.plantImage)),
+                                          ),
+                                          SizedBox(height: 5),
+                                          Text(
+                                            value.categoriesName,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 14),
+                                          )
+                                        ],
                                       ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        controller.categoriesList[index]
-                                            .categoriesName,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14),
-                                      )
-                                    ],
+                                    ),
                                   ),
-                                )),
+                                ))
+                            .values
+                            .toList(),
                       ),
                     );
                   },
@@ -145,16 +162,16 @@ class _ProductScreenState extends State<ProductScreen> {
                       clipBehavior: Clip.none,
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: List.generate(
-                            controller.trendingProductsList.length,
-                            (index) => GestureDetector(
+                        children: controller.trendingProductsList
+                            .asMap()
+                            .map((index, value) => MapEntry(
+                                index,
+                                GestureDetector(
                                   onTap: () {
                                     Navigator.of(context, rootNavigator: true)
                                         .pushNamed(
                                             ProductDetailsScreen.routeName,
-                                            arguments: controller
-                                                .trendingProductsList[index]
-                                                .productsId);
+                                            arguments: value.productsId);
                                   },
                                   child: Container(
                                     margin: EdgeInsets.only(right: 10),
@@ -183,9 +200,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                           ),
                                           SizedBox(height: 5),
                                           Text(
-                                            controller
-                                                .trendingProductsList[index]
-                                                .productsName,
+                                            value.productsName,
                                             maxLines: 2,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
@@ -194,7 +209,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                           ),
                                           SizedBox(height: 5),
                                           Text(
-                                            "Rs.${controller.trendingProductsList[index].productsMrp}/-",
+                                            "Rs.${value.productsMrp}/-",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 12),
@@ -203,7 +218,9 @@ class _ProductScreenState extends State<ProductScreen> {
                                       ),
                                     ),
                                   ),
-                                )),
+                                )))
+                            .values
+                            .toList(),
                       ),
                     );
                   },
@@ -220,110 +237,154 @@ class _ProductScreenState extends State<ProductScreen> {
                       return Center(child: CircularProgressIndicator());
                     }
                     return Column(
-                      children: List.generate(
-                          controller.trendingProductsList.length,
-                          (index) => GestureDetector(
-                                onTap: () {
-                                  // Navigator.of(context, rootNavigator: true)
-                                  //     .pushNamed(ProductDetailsScreen.routeName);
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.only(bottom: 10),
-                                  child: Container(
-                                    color: Colors.transparent,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(bottom: 5),
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            height: 130,
-                                            width: 100,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                child: Image.asset(
-                                                    AppAssets.gamlaImage)),
-                                          ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 25),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    controller
-                                                        .trendingProductsList[
-                                                            index]
-                                                        .productsName,
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        fontSize: 15),
-                                                  ),
-                                                  SizedBox(height: 5),
-                                                  Text(
-                                                    "Plant",
-                                                    style: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                  SizedBox(height: 10),
-                                                  Text(
-                                                    "Rs. ${controller.trendingProductsList[index].productsMrp}/-",
-                                                    style:
-                                                        TextStyle(fontSize: 14),
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Container(),
-                                                      Spacer(),
-                                                      IconButton(
-                                                          onPressed: () {
-                                                            bookMark =
-                                                                !bookMark;
-                                                            setState(() {
-                                                              if (bookMark) {
-                                                                print("true");
-                                                              } else {
-                                                                print("false");
-                                                              }
-                                                            });
-                                                          },
-                                                          icon: bookMark
-                                                              ? Icon(
-                                                                  Icons
-                                                                      .bookmark_border,
-                                                                  size: 22,
-                                                                  color: Colors
-                                                                      .black,
-                                                                )
-                                                              : Icon(
-                                                                  Icons
-                                                                      .bookmark,
-                                                                  size: 22,
-                                                                  color: Colors
-                                                                      .black,
-                                                                )),
-                                                    ],
-                                                  )
-                                                ],
-                                              ),
+                      children: controller.trendingProductsList
+                          .asMap()
+                          .map((index, value) => MapEntry(
+                                index,
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(bottom: 10),
+                                    child: Container(
+                                      color: Colors.transparent,
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 5),
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              height: 130,
+                                              width: 100,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10)),
+                                              child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  child: Image.asset(
+                                                      AppAssets.gamlaImage)),
                                             ),
-                                          )
-                                        ],
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 25),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      value.productsName,
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 15),
+                                                    ),
+                                                    SizedBox(height: 5),
+                                                    Text(
+                                                      "Plant",
+                                                      style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                    SizedBox(height: 10),
+                                                    Text(
+                                                      "Rs. ${value.productsMrp}/-",
+                                                      style: TextStyle(
+                                                          fontSize: 14),
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Container(),
+                                                        Spacer(),
+                                                        IconButton(
+                                                            onPressed:
+                                                                () async {
+                                                              if (bookMark ==
+                                                                  false) {
+                                                                final response = await controller.isFavorite(
+                                                                    appController
+                                                                        .userModelData!
+                                                                        .userId,
+                                                                    value
+                                                                        .productsId);
+                                                                response.when(
+                                                                  success:
+                                                                      (data) {
+                                                                    bookMark =
+                                                                        true;
+                                                                    setState(
+                                                                        () {});
+                                                                  },
+                                                                  failure: (ErrorType
+                                                                          type,
+                                                                      String?
+                                                                          message) {
+                                                                    showToast(
+                                                                        getMessageFromErrorType(
+                                                                            type));
+                                                                  },
+                                                                );
+                                                              } else {
+                                                                final response = await controller.isFavorite(
+                                                                    appController
+                                                                        .userModelData!
+                                                                        .userId,
+                                                                    value
+                                                                        .productsId);
+                                                                response.when(
+                                                                  success:
+                                                                      (data) {
+                                                                    bookMark =
+                                                                        false;
+                                                                    setState(
+                                                                        () {});
+                                                                  },
+                                                                  failure: (ErrorType
+                                                                          type,
+                                                                      String?
+                                                                          message) {
+                                                                    showToast(
+                                                                        getMessageFromErrorType(
+                                                                            type));
+                                                                  },
+                                                                );
+                                                              }
+                                                            },
+                                                            icon: bookMark ==
+                                                                    false
+                                                                ? Icon(
+                                                                    Icons
+                                                                        .bookmark_border,
+                                                                    size: 22,
+                                                                    color: Colors
+                                                                        .black,
+                                                                  )
+                                                                : Icon(
+                                                                    Icons
+                                                                        .bookmark,
+                                                                    size: 22,
+                                                                    color: Colors
+                                                                        .black,
+                                                                  )),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              )),
+                              ))
+                          .values
+                          .toList(),
                     );
                   },
                 ),

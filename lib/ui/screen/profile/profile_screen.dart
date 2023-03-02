@@ -143,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       }
                                       if (index == 3) {
                                         Navigator.of(context).pushNamed(
-                                            ShoppingScreen.routeName);
+                                            FavoriteLitScreen.routeName);
                                       }
                                       if (index == 4) {
                                         Navigator.of(context)

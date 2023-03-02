@@ -35,6 +35,25 @@ class ProductsController extends GetxController {
     }
   }
 
+  Future<UiResult<bool>> isFavorite(String userId, String productId) async {
+    try {
+      final response = await userRepo.favorite(userId, productId);
+      return UiSuccess(true);
+    } catch (error, stackTrace) {
+      return ErrorUtil.getUiFailureFromException(error, stackTrace);
+    }
+  }
+
+  Future<UiResult<bool>> isFavoriteRemove(
+      String userId, String productId) async {
+    try {
+      final response = await userRepo.favoriteRemove(userId, productId);
+      return UiSuccess(true);
+    } catch (error, stackTrace) {
+      return ErrorUtil.getUiFailureFromException(error, stackTrace);
+    }
+  }
+
   @override
   void onInit() {
     trendingProducts();
