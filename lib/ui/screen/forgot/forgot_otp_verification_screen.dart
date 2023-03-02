@@ -23,6 +23,7 @@ class ForgotOtpVerificationScreen extends StatefulWidget {
 class _ForgotOtpVerificationScreenState
     extends State<ForgotOtpVerificationScreen> {
   TextEditingController otpController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

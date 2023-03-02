@@ -6,6 +6,7 @@ import 'package:urban_farmer/const/app_icon.dart';
 import 'package:urban_farmer/ui/screen/home/controller/products_controller.dart';
 import 'package:urban_farmer/ui/screen/home/product_categories/view_all_screen.dart';
 import 'package:urban_farmer/ui/screen/home/product_screen.dart';
+import 'package:urban_farmer/ui/screen/home/top_products_screen.dart';
 import 'package:urban_farmer/ui/screen/profile/t&c_screen.dart';
 import 'package:urban_farmer/ui/screen/services/garden_maintenance.dart';
 import 'package:urban_farmer/ui/screen/home/wigdet/carousel_withindicator.dart';
@@ -96,58 +97,64 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
-                    children: List.generate(
-                      servicesList.length,
-                      (index) => GestureDetector(
-                        onTap: () {
-                          if (index == 0) {
-                            Navigator.of(context, rootNavigator: true)
-                                .pushNamed(ServicesCategoryScreen.routeName);
-                          }
-                          if (index == 1) {
-                            Navigator.of(context, rootNavigator: true)
-                                .pushNamed(GardenMaintenanceScreen.routeName);
-                          }
-                          if (index == 2) {
-                            Navigator.of(context)
-                                .pushNamed(CorporateGiftsScreen.routeName);
-                          }
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: Container(
-                            height: 110,
-                            width: 110,
-                            decoration: BoxDecoration(
-                              color: servicesList[index].color,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Center(
-                                      child: Image.asset(
-                                          servicesList[index].image,
-                                          height: 60)),
-                                  Text(
-                                    servicesList[index].text,
-                                    maxLines: 2,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 12),
+                    children: servicesList
+                        .asMap()
+                        .map((index, value) => MapEntry(
+                              index,
+                              GestureDetector(
+                                onTap: () {
+                                  if (index == 0) {
+                                    Navigator.of(context, rootNavigator: true)
+                                        .pushNamed(
+                                            ServicesCategoryScreen.routeName);
+                                  }
+                                  if (index == 1) {
+                                    Navigator.of(context, rootNavigator: true)
+                                        .pushNamed(
+                                            GardenMaintenanceScreen.routeName);
+                                  }
+                                  if (index == 2) {
+                                    Navigator.of(context).pushNamed(
+                                        CorporateGiftsScreen.routeName);
+                                  }
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child: Container(
+                                    height: 110,
+                                    width: 110,
+                                    decoration: BoxDecoration(
+                                      color: value.color,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Center(
+                                              child: Image.asset(value.image,
+                                                  height: 60)),
+                                          Text(
+                                            value.text,
+                                            maxLines: 2,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 12),
+                                          ),
+                                          SizedBox(height: 5),
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                  SizedBox(height: 5),
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                            ))
+                        .values
+                        .toList(),
                   ),
                 ),
               ),
@@ -195,22 +202,38 @@ class _HomeScreenState extends State<HomeScreen> {
                           clipBehavior: Clip.none,
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            children: List.generate(
-                              controller.trendingProductsList.length,
-                              (index) => Padding(
-                                padding: const EdgeInsets.only(right: 6),
-                                child: Container(
-                                  height: 120,
-                                  width: 90,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(AppAssets.gamlaImage)),
-                                ),
-                              ),
-                            ),
+                            children: controller.trendingProductsList
+                                .asMap()
+                                .map((index, value) => MapEntry(
+                                      index,
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context,
+                                                  rootNavigator: true)
+                                              .pushNamed(
+                                                  TopProductsScreen.routeName);
+                                        },
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 6),
+                                          child: Container(
+                                            height: 120,
+                                            width: 90,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                child: Image.asset(
+                                                    AppAssets.gamlaImage)),
+                                          ),
+                                        ),
+                                      ),
+                                    ))
+                                .values
+                                .toList(),
                           ),
                         );
                       },
@@ -224,12 +247,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 22, fontWeight: FontWeight.w700),
                         ),
                         const Spacer(),
-                        Text(
-                          "View All",
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w700,
-                              color: AppColor.kBlack),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .pushNamed(TopProductsScreen.routeName);
+                          },
+                          child: Text(
+                            "View All",
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                color: AppColor.kBlack),
+                          ),
                         ),
                       ],
                     ),
@@ -240,9 +269,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Center(child: CircularProgressIndicator());
                         }
                         return Column(
-                          children: List.generate(
-                              controller.trendingProductsList.length,
-                              (index) => Padding(
+                          children: controller.trendingProductsList
+                              .asMap()
+                              .map((index, value) => MapEntry(
+                                  index,
+                                  Padding(
                                     padding: const EdgeInsets.only(bottom: 15),
                                     child: Row(
                                       crossAxisAlignment:
@@ -298,7 +329,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         )
                                       ],
                                     ),
-                                  )),
+                                  )))
+                              .values
+                              .toList(),
                         );
                       },
                     ),

@@ -1,10 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:urban_farmer/const/app_color.dart';
 import 'package:urban_farmer/route/route_generator_n.dart';
 import 'package:urban_farmer/ui/screen/saved/saved_screen.dart';
-
 import '../../../const/app_icon.dart';
 import '../home/home_screen.dart';
 import '../notification/notification_screen.dart';

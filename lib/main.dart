@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_it/get_it.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:urban_farmer/const/app_color.dart';
-import 'package:urban_farmer/ui/screen/dashboad/dashboard_screen.dart';
-import 'package:urban_farmer/ui/screen/login/sign_up_screen.dart';
-import 'package:urban_farmer/ui/screen/login/sign_up_verification.dart';
-import 'package:urban_farmer/ui/screen/splash/splash_screen.dart';
 import 'core/bindings/app_bindings.dart';
 import 'core/network/api_client.dart';
 import 'core/network/dio/dio_api_client.dart';

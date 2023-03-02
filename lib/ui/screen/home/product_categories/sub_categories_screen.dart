@@ -17,12 +17,6 @@ class SubCategoriesScreen extends StatefulWidget {
 
 class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
   @override
-  void dispose() {
-    Get.delete<CategoriesController>();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: textAndBackAndUserAppBar("Sub Categories"),

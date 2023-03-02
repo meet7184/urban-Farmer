@@ -19,6 +19,7 @@ class ProductsListViewAllScreen extends StatefulWidget {
 
 class _ProductsListViewAllScreenState extends State<ProductsListViewAllScreen> {
   bool bookMark = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -22,6 +22,14 @@ enum TextFieldType {
   addressField,
   state,
   zipcode,
+  name2,
+  phoneNumber2,
+  emailEdit2,
+  addressEdit2,
+  city2,
+  addressField2,
+  state2,
+  zipcode2,
 }
 
 class CustomTextField extends StatelessWidget {
@@ -96,9 +104,11 @@ class CustomTextField extends StatelessWidget {
     switch (textFieldType) {
       case TextFieldType.phoneNumber:
       case TextFieldType.phoneNumberEdit:
+      case TextFieldType.phoneNumber2:
         return 10;
       case TextFieldType.zipcode:
-        return 5;
+      case TextFieldType.zipcode2:
+        return 6;
     }
     return null;
   }
@@ -108,6 +118,8 @@ class CustomTextField extends StatelessWidget {
       case TextFieldType.phoneNumber:
       case TextFieldType.phoneNumberEdit:
       case TextFieldType.zipcode:
+      case TextFieldType.zipcode2:
+      case TextFieldType.phoneNumber2:
         return TextInputType.number;
     }
     return null;
@@ -131,6 +143,13 @@ class CustomTextField extends StatelessWidget {
       case TextFieldType.city:
       case TextFieldType.state:
       case TextFieldType.zipcode:
+      case TextFieldType.name2:
+      case TextFieldType.emailEdit2:
+      case TextFieldType.addressEdit2:
+      case TextFieldType.phoneNumber2:
+      case TextFieldType.city2:
+      case TextFieldType.state2:
+      case TextFieldType.zipcode2:
         return TextInputAction.next;
       default:
         return null;
@@ -148,23 +167,6 @@ class CustomTextField extends StatelessWidget {
         return null;
     }
   }
-
-  // Widget? get suffix {
-  //   switch (textFieldType) {
-  //     case TextFieldType.phoneNumber:
-  //     case TextFieldType.emailId:
-  //     case TextFieldType.emailPassword:
-  //     case TextFieldType.newPassword:
-  //     case TextFieldType.confirmPassword:
-  //       return Icon(
-  //         Icons.visibility_outlined,
-  //         color: AppColor.kTextColor,
-  //         size: 21,
-  //       );
-  //     default:
-  //       return null;
-  //   }
-  // }
 
   String? get hintText {
     switch (textFieldType) {
@@ -200,6 +202,20 @@ class CustomTextField extends StatelessWidget {
         return "State";
       case TextFieldType.zipcode:
         return "Zip Code";
+      case TextFieldType.name2:
+        return "Name*";
+      case TextFieldType.emailEdit2:
+        return "Email Address*";
+      case TextFieldType.addressEdit2:
+        return "Address (House no, Building, Street, Area)*";
+      case TextFieldType.phoneNumber2:
+        return "Mobile No*";
+      case TextFieldType.city2:
+        return "City / District*";
+      case TextFieldType.state2:
+        return "State*";
+      case TextFieldType.zipcode2:
+        return "Pin Code*";
       default:
         return null;
     }

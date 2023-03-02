@@ -1,14 +1,17 @@
 import 'package:get/get.dart';
 import 'package:urban_farmer/core/utils/app_controller.dart';
+import 'package:urban_farmer/ui/screen/cart/controller/add_address_controller.dart';
 import 'package:urban_farmer/ui/screen/forgot/controller/forgot_contoller.dart';
 import 'package:urban_farmer/ui/screen/home/controller/home_controller.dart';
 import 'package:urban_farmer/ui/screen/home/controller/sub_category_controller.dart';
 import '../../ui/screen/cart/controller/car_controller.dart';
+import '../../ui/screen/cart/controller/order_controller.dart';
 import '../../ui/screen/home/controller/categories_controller.dart';
 import '../../ui/screen/home/controller/products_controller.dart';
 import '../../ui/screen/home/controller/products_details_controller.dart';
 import '../../ui/screen/login/controller/login_controller.dart';
 import '../../ui/screen/login/controller/sign_up_controller.dart';
+import '../../ui/screen/saved/controller/saved_controller.dart';
 
 class AppBindings extends Bindings {
   @override
@@ -26,5 +29,10 @@ class AppBindings extends Bindings {
         fenix: true);
     Get.lazyPut<CategoriesController>(() => CategoriesController(),
         fenix: true);
+    Get.lazyPut<OrderHistoryController>(() => OrderHistoryController(),
+        fenix: true);
+    Get.lazyPut<AddAddressController>(() => AddAddressController(),
+        fenix: true);
+    Get.lazyPut<SavedController>(() => SavedController(), fenix: true);
   }
 }

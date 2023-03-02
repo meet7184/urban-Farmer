@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:urban_farmer/ui/screen/cart/address_screen.dart';
+import 'package:urban_farmer/ui/screen/cart/controller/car_controller.dart';
 import '../../widget/back_button.dart';
 import 'offers_screen.dart';
 
